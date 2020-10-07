@@ -1,0 +1,52 @@
+{% import "helpers/macros.twig" as macros %}
+{% extends '_layout.twig' %}
+
+{% set tag_year = "" %}
+
+{% block title %}
+    {% if page_title %}
+        {{ page_title }} /
+    {% endif %}
+    {{ parent() }}
+{% endblock %}
+
+{% block body %}
+    <section class="container article-list">
+    {% for post in posts %}
+
+        {% if tag_year != post.created_at|date('Y') %}
+            {% set tag_year = post.created_at|date('Y') %}
+            <h3>{{ tag_year }}</h3>
+        {% endif %}
+
+        <article id="{{ post.slug }}" itemscope itemprop="blogPost">
+            <time>{{ post.created_at|date('M d.') }}</time>
+            <h4 itemprop="name">
+                <a href="{{ url_for('post', { 'post-slug': post.slug }) }}" itemprop="url">{{ post.title }}</a>
+            </h4>
+        </article>
+    {% endfor %}
+    </section>
+
+    <section class="pagination">
+        <nav class="container">
+            {% if page_nav.prev %}
+            <a class="extend prev" rel="prev" href="{{ page_nav.prev }}">
+                <i><-</i>
+                <span>Prev</span>
+            </a>
+            {% else %}
+            <a></a>
+            {% endif %}
+
+            <span style="font-size: .9rem;">Page {{ page_nav.current }} of {{ page_nav.total }} pages</span>
+
+            {% if page_nav.next %}
+            <a class="extend next" rel="next" href="{{ page_nav.next }}">
+                <i>-></i>
+                <span>Next</span>
+            </a>
+            {% endif %}
+        </nav>
+    </section>
+{% endblock %}

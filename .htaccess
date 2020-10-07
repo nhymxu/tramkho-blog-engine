@@ -1,0 +1,9 @@
+RewriteEngine on
+
+RedirectMatch 404 ^/\.git
+RedirectMatch 404 ^/composer\.(json|lock|phar)$
+
+RewriteRule ^assets/theme/(.*)/(.*) storage/templates/$1/assets/$2
+
+RewriteRule ^$ public/ [L]
+RewriteRule (.*) public/$1 [L]

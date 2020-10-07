@@ -1,0 +1,54 @@
+{% extends "_layout.twig" %}
+
+{% block title %}
+    {{ post.title }}
+{% endblock %}
+
+{% block body %}
+    <section id="content" class="container container-link">
+        <!-- article-type- post/page/index -->
+        <article id="{{ post.slug }}" class="article article-type-post" itemscope itemprop="blogPost">
+            <h2 class="title" itemprop="name">{{ post.title }}</h2>
+
+            <h4 class="time">
+              <time datetime="{{ post.created_at }}" itemprop="datePublished">
+                  {{ post.created_at }}
+              </time>
+            </h4>
+
+            <section class="content">{{ post.content | markdown_to_html }}</section>
+
+            <div class="other-tags">
+                <b>Tags:</b>
+                {% for tag in tags %}
+                    <a class="topic-tag" href="{{ url_for('tag', { 'tag-slug': tag.slug }) }}">#{{ tag['name'] }}</a>
+                {% endfor %}
+            </div>
+        </article>
+    </section>
+
+    <!-- Paging -->
+    {#
+    <section class="pagination">
+        <nav class="container">
+            {{ IF PAGE.prev }}
+            <a class="extend prev" rel="prev" href="{{ PAGE.prev.url }}">
+                <i><-</i>
+                <span>{{ PAGE.prev.title }}</span>
+            </a>
+            {{ ELSE }}
+            <a></a>
+            {{- END }}
+
+            {{ IF PAGE.next }}
+            <a class="extend next" rel="next" href="{{ PAGE.next.url }}">
+                <i>-></i>
+                <span>{{ PAGE.next.title }}</span>
+            </a>
+            {{- END }}
+        </nav>
+    </section>
+    #}
+    <!-- /Paging -->
+
+{% endblock %}

@@ -1,0 +1,97 @@
+<?php
+
+namespace App\Action;
+
+use Nhymxu\Responder;
+use App\Domain\Blog\BlogRepository;
+use Psr\Container\ContainerInterface;
+use Psr\Http\Message\ServerRequestInterface;
+use Slim\Interfaces\RouteParserInterface;
+use Slim\Routing\RouteContext;
+
+/**
+ * BaseAction
+ */
+class BaseAction
+{
+    /**
+     * @var Responder
+     */
+    protected $responder;
+
+    /**
+     * @var BlogRepository
+     */
+    protected $blogRepository;
+
+    /**
+     * @var ContainerInterface
+     */
+    protected $container;
+
+    /**
+     * PostAction constructor.
+     *
+     * @param Responder $responder The responder
+     * @param BlogRepository $blogRepository
+     * @param ContainerInterface $container
+     */
+    public function __construct(Responder $responder, BlogRepository $blogRepository, ContainerInterface $container)
+    {
+        $this->responder = $responder;
+        $this->blogRepository = $blogRepository;
+        $this->container = $container;
+    }
+
+    /**
+     * @param ServerRequestInterface $request
+     * @param array $filter
+     * @param array $uriData
+     * @return array
+     */
+    protected function get_pagination_posts(ServerRequestInterface$request, array $filter, array $uriData): array
+    {
+        $routeContext = RouteContext::fromRequest($request);
+        $routeParser = $routeContext->getRouteParser();
+
+        $current_page = $this->get_page($uriData['query_params']);
+
+        $posts = $this->blogRepository->getByPage($current_page, $filter);
+        $pagination = $this->blogRepository->getPagination($current_page, $filter);
+
+        $prev = $uriData['query_params'];
+        $prev['page'] = $pagination['prev'];
+        $pagination['prev'] = $routeParser->urlFor($uriData['type'], $uriData['data'], $prev);
+
+        $next = $uriData['query_params'];
+        $next['page'] = $pagination['next'];
+        $pagination['next'] = $routeParser->urlFor($uriData['type'], $uriData['data'], $next);
+
+        return [
+            'current_page'  => $current_page,
+            'posts'         => $posts,
+            'page_nav'      => $pagination,
+            'page_title'    => 'Page: ' . $current_page,
+        ];
+    }
+
+    /**
+     * Get current page number
+     *
+     * @param array $query_params
+     * @return int
+     */
+    private function get_page(array $query_params): int
+    {
+        $page = 1;
+        if (isset($query_params['page']) && trim($query_params['page']) !== '') {
+            $page = (int)$query_params['page'];
+        }
+
+        if ($page < 1) {
+            $page = 1;
+        }
+
+        return $page;
+    }
+}
