@@ -1,0 +1,51 @@
+{
+    "name": "nhymxu/tramkho-blog-engine",
+    "description": "Dead simple blog engine",
+    "type": "project",
+    "authors": [
+        {
+            "name": "Dung Nguyen",
+            "email": "contact@dungnt.net"
+        }
+    ],
+    "require": {
+        "php": "^7.3",
+        "ext-json": "*",
+        "ext-pdo": "*",
+        "league/commonmark": "^1.5",
+        "monolog/monolog": "^2.1",
+        "php-di/php-di": "^6.2",
+        "rakit/validation": "^1.4",
+        "selective/basepath": "^1.0",
+        "slim/psr7": "^1.2",
+        "slim/slim": "^4.5",
+        "slim/twig-view": "^3.0",
+        "twig/markdown-extra": "^3.0",
+        "twig/string-extra": "^3.0"
+    },
+    "require-dev": {
+        "phpstan/phpstan": "^0.12.48",
+        "psalm/phar": "^4.1",
+        "roave/security-advisories": "dev-master"
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "src/",
+            "Nhymxu\\": "framework/"
+        }
+    },
+    "config": {
+        "process-timeout": 0,
+        "optimize-autoloader": true,
+        "preferred-install": "dist",
+        "sort-packages": true
+    },
+    "scripts": {
+        "serve": "php -S localhost:8080 -t public cli-server.php",
+        "test": "phpunit",
+        "phpstan": "phpstan analyse framework src tests bootstrap --level=max -c phpstan.neon --no-progress --ansi",
+        "phpstan-progress": "phpstan analyse framework src tests bootstrap --level=max -c phpstan.neon --ansi",
+        "psalm": "php vendor/bin/psalm.phar",
+        "psalm-debug": "php vendor/bin/psalm.phar --show-info=true --no-cache"
+    }
+}

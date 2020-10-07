@@ -1,0 +1,35 @@
+<?php
+
+namespace App\Action;
+
+use Psr\Http\Message\{ResponseInterface, ServerRequestInterface};
+
+final class HomeAction extends BaseAction
+{
+    /**
+     * Invoke.
+     *
+     * @param ServerRequestInterface $request The request
+     * @param ResponseInterface $response The response
+     *
+     * @return ResponseInterface The response
+     */
+    public function __invoke(ServerRequestInterface $request, ResponseInterface $response): ResponseInterface
+    {
+        $filter = [];
+        $ignore_tag = $this->container->get('settings')['homepage']['ignore']['tag'] ?? false;
+        if ($ignore_tag) {
+            $filter['ignore_tag'] = $ignore_tag;
+        }
+
+        $uriData = [
+            'type'  => 'home',
+            'query_params' => $request->getQueryParams(),
+            'data'  => []
+        ];
+
+        $viewData = $this->get_pagination_posts($request, $filter, $uriData);
+
+        return $this->responder->render($response, 'archive.twig', $viewData);
+    }
+}

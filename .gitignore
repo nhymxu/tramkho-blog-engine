@@ -1,0 +1,32 @@
+# IDE / Editor
+.idea/
+.vscode/
+
+# Project file
+/coverage/
+/vendor/
+/bin/convert/vendor/
+
+storage/*
+!storage/logs/.gitkeep
+!storage/uploads/.gitkeep
+!storage/templates
+.phpunit.result.cache
+
+public/static/theme
+public/static/uploads
+
+.env.php
+
+composer.phar
+.DS_STORE
+
+# keys
+*.pem
+*.key
+*.ppk
+*.p12
+*.pfx
+*.crt
+*.cer
+*.der

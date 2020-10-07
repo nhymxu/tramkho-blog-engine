@@ -1,0 +1,19 @@
+{% extends '_layout.twig' %}
+
+{% block title %}
+    Tag Archive / {{ parent() }}
+{% endblock %}
+
+{% block body %}
+    <section id="content" class="container">
+        <div class="other-tags">
+        {% for tag in tags %}
+            <a class="topic-tag" href="{{ url_for('tag', { 'tag-slug': tag.slug }) }}">
+                #{{ tag.name }}
+                <span class="">{{ tag.cnt }}</span>
+            </a>
+            <br>
+        {% endfor %}
+        </div>
+    </section>
+{% endblock %}
