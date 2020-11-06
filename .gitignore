@@ -15,6 +15,7 @@ storage/*
 
 public/static/theme
 public/static/uploads
+public/sitemap.*
 
 .env.php
 

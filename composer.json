@@ -12,6 +12,7 @@
         "php": "^7.3",
         "ext-json": "*",
         "ext-pdo": "*",
+        "icamys/php-sitemap-generator": "^2.0",
         "league/commonmark": "^1.5",
         "monolog/monolog": "^2.1",
         "php-di/php-di": "^6.2",
@@ -20,6 +21,7 @@
         "slim/psr7": "^1.2",
         "slim/slim": "^4.5",
         "slim/twig-view": "^3.0",
+        "symfony/console": "^5.1",
         "twig/markdown-extra": "^3.0",
         "twig/string-extra": "^3.0"
     },
@@ -42,6 +44,7 @@
     },
     "scripts": {
         "serve": "php -S localhost:8080 -t public cli-server.php",
+        "sitemap:generate": "php bin/console.php sitemap-generator",
         "test": "phpunit",
         "phpstan": "phpstan analyse framework src tests bootstrap --level=max -c phpstan.neon --no-progress --ansi",
         "phpstan-progress": "phpstan analyse framework src tests bootstrap --level=max -c phpstan.neon --ansi",
