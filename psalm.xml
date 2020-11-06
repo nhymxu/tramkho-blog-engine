@@ -4,6 +4,7 @@
     errorLevel="3"
     resolveFromConfigFile="true"
     skipChecksOnUnresolvableIncludes="true"
+    autoloader="bootstrap/app.php"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns="https://getpsalm.org/schema/config"
     xsi:schemaLocation="https://getpsalm.org/schema/config vendor/vimeo/psalm/config.xsd"
@@ -16,20 +17,6 @@
         </ignoreFiles>
     </projectFiles>
     <issueHandlers>
-        <UnresolvableInclude>
-            <errorLevel type="suppress">
-                <file name="bootstrap/app.php" />
-                <file name="bootstrap/settings.php" />
-                <file name="bootstrap/container.php" />
-            </errorLevel>
-        </UnresolvableInclude>
-        <UndefinedConstant>
-            <errorLevel type="suppress">
-                <directory name="bootstrap/config"/>
-                <file name="bootstrap/settings.php" />
-                <file name="bootstrap/container.php" />
-            </errorLevel>
-        </UndefinedConstant>
         <MissingClosureReturnType>
             <errorLevel type="suppress">
                 <file name="bootstrap/container.php" />
