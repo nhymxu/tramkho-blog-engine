@@ -14,3 +14,6 @@ $settings['homepage']['ignore']['tag'] = [1];
 
 // inject google tag manager script
 $settings['app_config']['gtm'] = 'GTM-KQR7GC';
+
+// setup domain for sitemap
+$settings['app_config']['url'] = 'http://localhost/blog';
