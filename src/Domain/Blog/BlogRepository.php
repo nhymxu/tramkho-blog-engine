@@ -5,12 +5,12 @@ namespace App\Domain\Blog;
 use App\PostNotFoundException;
 use PDO;
 
-final class BlogRepository
+class BlogRepository
 {
     /**
      * @var PDO
      */
-    private $connection;
+    protected $connection;
 
     /**
      * Constructor
@@ -34,7 +34,7 @@ final class BlogRepository
     {
         $offset = ($page - 1) * $per_page;
 
-        $sql = 'SELECT p.title, p.slug, p.created_at, p.updated_at FROM post p';
+        $sql = 'SELECT p.id, p.title, p.slug, p.status, p.created_at, p.updated_at FROM post p';
         $bind_value = [
             'offset'    => $offset,
             'row_count' => $per_page,
@@ -161,6 +161,37 @@ final class BlogRepository
 
         if(!$row) {
             throw new PostNotFoundException(sprintf("Post not found: %s", $slug));
+        }
+
+        return $row;
+    }
+
+    /**
+     * Get single post by id
+     *
+     * @param string $post_id
+     * @param string $status
+     * @return mixed
+     */
+    public function getById(string $post_id, string $status = '')
+    {
+        $sql = 'SELECT * FROM post WHERE id = :id';
+        $bind_value = ['id' => $post_id];
+
+        if ($status !== '') {
+            $sql .= ' AND status = :status';
+            $bind_value['status'] = $status;
+        }
+
+        $statement = $this->connection->prepare($sql);
+        $statement->execute($bind_value);
+
+        $row = $statement->fetch();
+
+        $statement = null;
+
+        if(!$row) {
+            throw new PostNotFoundException(sprintf("Post not found: %s", $post_id));
         }
 
         return $row;

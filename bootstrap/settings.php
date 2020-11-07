@@ -15,6 +15,7 @@ $settings['db'] = require BOOTSTRAP_DIR . '/config/database.php';
 $settings['logger'] = require BOOTSTRAP_DIR . '/config/logger.php';
 $settings['twig'] = require BOOTSTRAP_DIR . '/config/twig.php';
 $settings['commands'] = require BOOTSTRAP_DIR . '/config/command.php';
+$settings['auth'] = require BOOTSTRAP_DIR . '/config/auth.php';
 
 if (file_exists(ROOT_DIR . '/.env.php')) {
     require ROOT_DIR . '/.env.php';

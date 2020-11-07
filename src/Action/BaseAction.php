@@ -47,25 +47,43 @@ class BaseAction
      * @param ServerRequestInterface $request
      * @param array $filter
      * @param array $uriData
+     * @param int $perPage
      * @return array
      */
-    protected function get_pagination_posts(ServerRequestInterface$request, array $filter, array $uriData): array
+    protected function get_pagination_posts(
+        ServerRequestInterface $request,
+        array $filter,
+        array $uriData,
+        int $perPage = 20
+    ): array
     {
         $routeContext = RouteContext::fromRequest($request);
         $routeParser = $routeContext->getRouteParser();
 
         $current_page = $this->get_page($uriData['query_params']);
 
-        $posts = $this->blogRepository->getByPage($current_page, $filter);
-        $pagination = $this->blogRepository->getPagination($current_page, $filter);
+        $posts = $this->blogRepository->getByPage($current_page, $filter, $perPage);
+        $pagination = $this->blogRepository->getPagination($current_page, $filter, $perPage);
 
-        $prev = $uriData['query_params'];
-        $prev['page'] = $pagination['prev'];
-        $pagination['prev'] = $routeParser->urlFor($uriData['type'], $uriData['data'], $prev);
+        if ($pagination['prev'] !== '') {
+            $prev = $uriData['query_params'];
+            $prev['page'] = $pagination['prev'];
+            $pagination['prev'] = $routeParser->urlFor($uriData['type'], $uriData['data'], $prev);
+        }
 
-        $next = $uriData['query_params'];
-        $next['page'] = $pagination['next'];
-        $pagination['next'] = $routeParser->urlFor($uriData['type'], $uriData['data'], $next);
+        if ($pagination['next'] !== '') {
+            $next = $uriData['query_params'];
+            $next['page'] = $pagination['next'];
+            $pagination['next'] = $routeParser->urlFor($uriData['type'], $uriData['data'], $next);
+        }
+
+        $base = $uriData['query_params'];
+        unset($base['page']);
+        if (empty($base) && !isset($base['status'])) {
+            $base['status'] = '';
+        }
+
+        $pagination['base'] = $routeParser->urlFor($uriData['type'], $uriData['data'], $base);
 
         return [
             'current_page'  => $current_page,

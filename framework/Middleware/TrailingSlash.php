@@ -44,7 +44,7 @@ final class TrailingSlash implements MiddlewareInterface
         if ($path !== '/' && $rPath !== $this->basePath && substr($path, -1) === '/') {
             // permanently redirect paths with a trailing slash
             // to their non-trailing counterpart
-            $uri = $uri->withPath($path);
+            $uri = $uri->withPath($rPath);
             if ($request->getMethod() === 'GET') {
                 $response = new Response();
                 return $response

@@ -5,6 +5,7 @@
 return [
     'paths' => [
         TEMPLATE_DIR . '/simple',
+        'admin' => TEMPLATE_DIR . '/admin',
     ],
     'options' => [
         'debug' => false,
