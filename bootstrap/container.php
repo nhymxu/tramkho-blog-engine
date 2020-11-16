@@ -5,6 +5,7 @@ use App\Markdown\MarkdownConverter;
 use Nhymxu\LoggerFactory;
 use Psr\Container\ContainerInterface;
 use Psr\Http\Message\ResponseFactoryInterface;
+use Psr\Http\Message\ResponseInterface;
 use Slim\App;
 use Slim\Factory\AppFactory;
 use Slim\Interfaces\RouteParserInterface;
@@ -135,13 +136,14 @@ return [
             "users" => [
                 $settings['username'] => $settings['password'],
             ],
-            "error" => function ($response, $arguments) {
+            "error" => function (ResponseInterface $response, array $arguments) {
                 $data = [];
                 $data["status"] = "error";
                 $data["message"] = $arguments["message"];
 
                 $body = $response->getBody();
-                $body->write(json_encode($data, JSON_UNESCAPED_SLASHES));
+                $body_data = (string)json_encode($data, JSON_UNESCAPED_SLASHES);
+                $body->write($body_data);
 
                 return $response->withBody($body);
             }

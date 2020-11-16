@@ -91,6 +91,9 @@ final class SitemapGeneratorCommand extends Command
             foreach($posts as $post) {
                 $output->writeln(sprintf('Post: %s', $post['slug']));
                 $date_update = \DateTime::createFromFormat('Y-m-d H:i:s', $post['updated_at']);
+                if (!$date_update) {
+                    $date_update = null;
+                }
                 $generator->addURL($post['slug'], $date_update, 'monthly', 0.2);
             }
         }

@@ -1,9 +1,6 @@
 <?php
 namespace App\Action\Admin;
 
-use App\Domain\Blog\AdminRepository;
-use Nhymxu\Responder;
-use Psr\Container\ContainerInterface;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use Slim\Routing\RouteContext;
@@ -12,37 +9,8 @@ use Slim\Routing\RouteContext;
 /**
  * Action.
  */
-final class PostSaveAction
+final class PostSaveAction extends BaseAction
 {
-    /**
-     * @var Responder
-     */
-    protected $responder;
-
-    /**
-     * @var AdminRepository
-     */
-    protected $repository;
-
-    /**
-     * @var ContainerInterface
-     */
-    protected $container;
-
-    /**
-     * PostAction constructor.
-     *
-     * @param Responder $responder The responder
-     * @param AdminRepository $repository
-     * @param ContainerInterface $container
-     */
-    public function __construct(Responder $responder, AdminRepository $repository, ContainerInterface $container)
-    {
-        $this->responder = $responder;
-        $this->repository = $repository;
-        $this->container = $container;
-    }
-
     /**
      * Invoke.
      *
@@ -58,7 +26,8 @@ final class PostSaveAction
         array $args
     ): ResponseInterface
     {
-        $data = $request->getParsedBody();
+        $routeParser = RouteContext::fromRequest($request)->getRouteParser();
+        $data = (array)$request->getParsedBody();
 
         $now = date('Y-m-d H:i:s');
 
@@ -72,11 +41,11 @@ final class PostSaveAction
 
         if ($data['post_action'] === 'new') {
             $payload['create_time'] = $now;
-            $post_id = $this->repository->createPost($payload);
+            $post_id = (int)$this->repository->createPost($payload);
         } else {
             $payload['post_id'] = $data['post_id'];
             $this->repository->updatePost($payload);
-            $post_id = $payload['post_id'];
+            $post_id = (int)$payload['post_id'];
         }
 
         $tags = $this->repository->getPostTag($post_id);
@@ -85,12 +54,12 @@ final class PostSaveAction
             $tag_ids[] = (int) $tag['id'];
         }
 
-        $this->assignPostTag($post_id, $data['post_tag'], $tag_ids);
+        $this->assignPostTag($post_id, (array)$data['post_tag'], $tag_ids);
 
-        $routeParser = RouteContext::fromRequest($request)->getRouteParser();
+
         $url = $routeParser->urlFor(
             'admin:post_edit',
-            ['post-id' => $post_id],
+            ['post-id' => (string)$post_id],
             ['notice' => 'Saved']
         );
 
@@ -98,11 +67,11 @@ final class PostSaveAction
                         ->withStatus(302);
     }
 
-    private function assignPostTag($post_id, $tags, $current_tags): void
+    private function assignPostTag(int $post_id, array $tags, array $current_tags): void
     {
         $delete_tags = array_diff($current_tags, $tags);
         foreach($delete_tags as $tag_id) {
-            $this->repository->removePostTag($post_id, $tag_id);
+            $this->repository->removePostTag($post_id, (int)$tag_id);
         }
 
         foreach($tags as $tag) {
@@ -115,12 +84,12 @@ final class PostSaveAction
             }
 
             if (!in_array($tag_id, $current_tags)) {
-                $this->repository->updatePostTag($post_id, $tag_id);
+                $this->repository->updatePostTag($post_id, (int)$tag_id);
             }
         }
     }
 
-    private function sanitize($title): string
+    private function sanitize(string $title): string
     {
         $replacement = '-';
         $map = array();
@@ -149,6 +118,6 @@ final class PostSaveAction
         //Some URL was encode, decode first
         $title = urldecode($title);
         $map = array_merge($map, $default);
-        return strtolower(preg_replace(array_keys($map), array_values($map), $title));
+        return strtolower((string)preg_replace(array_keys($map), array_values($map), $title));
     }
 }
