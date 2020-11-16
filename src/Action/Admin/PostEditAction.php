@@ -50,7 +50,7 @@ final class PostEditAction
      */
     public function __invoke(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
     {
-        $post_id = $args['post-id'];
+        $post_id = (int)$args['post-id'];
 
         $post = $this->repository->getById($post_id);
         $tags = $this->repository->getPostTag($post_id);

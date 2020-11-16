@@ -29,7 +29,7 @@ final class PostTrashAction extends BaseAction
         array $args
     ): ResponseInterface
     {
-        $data = $request->getParsedBody();
+        $data = (array)$request->getParsedBody();
 
         $now = date('Y-m-d H:i:s');
 

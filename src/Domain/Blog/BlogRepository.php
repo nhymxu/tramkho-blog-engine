@@ -169,11 +169,11 @@ class BlogRepository
     /**
      * Get single post by id
      *
-     * @param string $post_id
+     * @param int $post_id
      * @param string $status
      * @return mixed
      */
-    public function getById(string $post_id, string $status = '')
+    public function getById(int $post_id, string $status = '')
     {
         $sql = 'SELECT * FROM post WHERE id = :id';
         $bind_value = ['id' => $post_id];
@@ -264,6 +264,7 @@ class BlogRepository
         $statement = $this->connection->query($sql);
 
         if (!$statement) {
+            $statement = null;
             return [];
         }
 
