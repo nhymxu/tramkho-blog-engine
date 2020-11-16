@@ -1,0 +1,168 @@
+{% extends '@admin/_layout.twig' %}
+
+{% block body %}
+  {% if notice %}
+    <div class="bg-green-200 px-6 py-4 mx-2 my-4 rounded-md text-lg flex items-center mx-auto w-3/4 xl:w-2/4">
+      <svg viewBox="0 0 24 24" class="text-green-600 w-5 h-5 sm:w-5 sm:h-5 mr-3">
+        <path
+          fill="currentColor"
+          d="M12,0A12,12,0,1,0,24,12,12.014,12.014,0,0,0,12,0Zm6.927,8.2-6.845,9.289a1.011,1.011,0,0,1-1.43.188L5.764,13.769a1,1,0,1,1,1.25-1.562l4.076,3.261,6.227-8.451A1,1,0,1,1,18.927,8.2Z"
+        ></path>
+      </svg>
+      <span class="text-green-800"> Your post has been saved. </span>
+    </div>
+  {% endif %}
+
+  <form class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 flex flex-col my-2" onsubmit="return before_submit();" action="{{ url_for('admin:post_save') }}" method="post">
+    <input type="hidden" name="post_id" value="{{ post.id }}">
+    <input type="hidden" name="post_action" value="{{ post_action }}">
+
+    <div class="-mx-3 md:flex mb-6">
+      <div class="md:w-full px-3">
+        <label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2" for="post-title">
+          Title
+        </label>
+        <input class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-red rounded py-3 px-4 mb-3" value="{{ post.title }}" name="post_title" id="post-title" type="text" placeholder="Post title">
+        {# <p class="text-red text-xs italic">Please fill out this field.</p> #}
+      </div>
+    </div>
+
+    <div class="-mx-3 md:flex mb-6">
+      <div class="md:w-3/4 px-3 mb-6 md:mb-0">
+        <label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2" for="post-slug">
+          Slug
+        </label>
+        <input class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded py-3 px-4" name="post_slug" id="post-slug" type="text" placeholder="Post slug" value="{{ post.slug }}">
+      </div>
+      <div class="md:w-1/4 px-3">
+        <label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2" for="post-status">
+          Status
+        </label>
+        <div class="relative">
+          <select class="block appearance-none w-full bg-grey-lighter border border-grey-lighter text-grey-darker py-3 px-4 pr-8 rounded" id="post-status" name="post_status">
+            {% for i in ['publish', 'draft', 'private', 'trash'] %}
+              <option value="{{ i }}" {% if post.status == i %}selected{% endif %}>{{ i|capitalize }}</option>
+            {% endfor %}
+          </select>
+          <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-grey-darker">
+            <svg class="h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="-mx-3 md:flex mb-6">
+      <div class="md:w-full px-3">
+        <label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2" for="post-content">
+          Content
+        </label>
+        <textarea class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded py-3 px-4 mb-3" name="post_content" id="post-content" rows="15">{{ post.content }}</textarea>
+        <div id="editor"></div>
+          {# <p class="text-grey-dark text-xs italic">Make it as long and as crazy as you'd like</p> #}
+      </div>
+    </div><!-- content area -->
+
+    <div class="-mx-3 md:flex mb-6">
+      <div class="md:w-full px-3">
+        <label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2" for="post-tag">
+          Tag
+        </label>
+        <select class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded py-3 px-4" id="post-tag" name="post_tag[]"></select>
+      </div>
+    </div>
+
+    <div class="-mx-3 md:flex mb-2">
+      <div class="md:w-full px-3">
+        <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" type="submit">Save</button>
+      </div>
+    </div>
+  </form>
+{% endblock %}
+
+{#
+{% block footer_script %}
+  <script src="https://uicdn.toast.com/editor/latest/toastui-editor-all.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/highlight.min.js"></script>
+  <script src="https://uicdn.toast.com/editor-plugin-code-syntax-highlight/latest/toastui-editor-plugin-code-syntax-highlight-all.min.js"></script>
+  <!-- Editor's Dependecy Style -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.48.4/codemirror.min.css"
+  />
+  <!-- Editor's Style -->
+  <link rel="stylesheet" href="https://uicdn.toast.com/editor/latest/toastui-editor.min.css" />
+
+  <script type="text/javascript">
+    const pluginFn = toastui.Editor.plugin['codeSyntaxHighlightPlugin'];
+
+    const editor = new toastui.Editor({
+    el: document.querySelector('#editor'),
+    height: '500px',
+    initialEditType: 'markdown',
+    previewStyle: 'vertical',
+    plugins: pluginFn,
+  });
+
+  function before_submit() {
+    const content = editor.getMarkdown();
+    document.getElementById('post-content').value = content;
+    return true;
+  }
+  </script>
+{% endblock %}
+#}
+
+{% block footer_script %}
+  <link href="static/theme/admin/assets/easymde/easymde.min.css" rel="stylesheet" >
+  <script src="static/theme/admin/assets/easymde/easymde.min.js"></script>
+  <script type="text/javascript">
+    const easyMDE = new EasyMDE({
+      element: document.getElementById('post-content'),
+      autoDownloadFontAwesome: false,
+      hideSelected: true,
+      // lineWrapping: false,
+      maxHeight: '500px',
+      renderingConfig: {
+        singleLineBreaks: false, // disable parsing GFM single line breaks
+        codeSyntaxHighlighting: true,
+      },
+      // hideIcons: ["side-by-side", "preview"],
+      spellChecker: false,
+      parsingConfig: {
+        allowAtxHeaderWithoutSpace: true,
+      },
+      lineNumbers: true,
+    });
+
+    function before_submit() {
+      return true;
+    }
+  </script>
+
+  <link href="static/theme/admin/assets/selectize/selectize.default.css" rel="stylesheet">
+  <script src="static/theme/admin/assets/js/jquery-3.5.1.min.js"></script>
+  <script src="static/theme/admin/assets/selectize/selectize.min.js"></script>
+
+  <script>
+    jQuery(document).ready(function ($) {
+      $('#post-tag').selectize({
+        persist: false,
+        maxItems: null,
+        valueField: 'id',
+        labelField: 'name',
+        searchField: ['name'],
+        plugins: ['remove_button'],
+        sortField: [{'field': 'name', direction: 'asc'}],
+        options: JSON.parse('{{ all_tags|json_encode()|raw }}'), // all tags
+        items: {{ tag_ids }}, // selected item
+        create: function(input) {
+          return {
+            name: input,
+            id: '+' + input
+          };
+        },
+      }); // end selectize
+    });
+  </script>
+{% endblock %}

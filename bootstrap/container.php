@@ -10,6 +10,7 @@ use Slim\Factory\AppFactory;
 use Slim\Interfaces\RouteParserInterface;
 use Slim\Middleware\ErrorMiddleware;
 use Slim\Views\Twig;
+use Tuupola\Middleware\HttpBasicAuthentication;
 use Twig\Extra\Markdown\{MarkdownExtension, MarkdownRuntime};
 use Twig\Extra\String\StringExtension;
 use Twig\Loader\FilesystemLoader;
@@ -109,5 +110,37 @@ return [
         $errorMiddleware->setDefaultErrorHandler($container->get(ErrorHandler::class));
 
         return $errorMiddleware;
+    },
+
+    HttpBasicAuthentication::class => static function (ContainerInterface $container) {
+        $settings = $container->get('settings')['auth'];
+
+        // Prevent forgot setup authentication
+        if (empty($settings['username'])) {
+            $settings['username'] = 'root';
+        }
+
+        if (empty($settings['password'])) {
+            $settings['password'] = base64_encode(random_bytes(10));
+        }
+
+        return new HttpBasicAuthentication([
+            "path" => $settings['path'],
+            "realm" => "Protected",
+            "relaxed" => $settings['whitelist'],
+            "users" => [
+                $settings['username'] => $settings['password'],
+            ],
+            "error" => function ($response, $arguments) {
+                $data = [];
+                $data["status"] = "error";
+                $data["message"] = $arguments["message"];
+
+                $body = $response->getBody();
+                $body->write(json_encode($data, JSON_UNESCAPED_SLASHES));
+
+                return $response->withBody($body);
+            }
+        ]);
     },
 ];

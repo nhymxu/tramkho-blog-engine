@@ -30,7 +30,7 @@ server {
     }
 
     location @tramkho {
-        rewrite /blog/((?U).*)(/+)$ /blog/$1 redirect;
+        # rewrite /blog/((?U).*)(/+)$ /blog/$1 redirect;
         rewrite /blog/(.*)$ /blog/index.php?/$1 last;
     }
 

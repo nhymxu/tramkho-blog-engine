@@ -17,3 +17,20 @@ $settings['app_config']['gtm'] = 'GTM-KQR7GC';
 
 // setup domain for sitemap
 $settings['app_config']['url'] = 'http://localhost/blog';
+
+/**
+ * authentication
+ */
+
+// Protected path
+$settings['auth']['path'] = '/admin';
+
+// Auth info
+$settings['auth']['username'] = 'root';
+$settings['auth']['password'] = 'root';
+
+// https whitelist
+$settings['auth']['whitelist'] = [
+    'localhost',
+    'dungnt.net',
+];
