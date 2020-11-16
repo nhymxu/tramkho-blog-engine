@@ -114,6 +114,10 @@ return [
 
     HttpBasicAuthentication::class => static function (ContainerInterface $container) {
         $settings = $container->get('settings')['auth'];
+        $app = $container->get(App::class);
+        $base_path = $app->getBasePath();
+
+        $protected_path = $base_path . $settings['path'];
 
         // Prevent forgot setup authentication
         if (empty($settings['username'])) {
@@ -125,7 +129,7 @@ return [
         }
 
         return new HttpBasicAuthentication([
-            "path" => $settings['path'],
+            "path" => $protected_path,
             "realm" => "Protected",
             "relaxed" => $settings['whitelist'],
             "users" => [
