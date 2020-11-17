@@ -2,8 +2,6 @@
 
 namespace App\Action;
 
-use App\Domain\Blog\BlogRepository;
-use Nhymxu\Responder;
 use Psr\Http\Message\{ResponseInterface, ServerRequestInterface};
 
 final class TagListAction extends BaseAction
@@ -25,6 +23,6 @@ final class TagListAction extends BaseAction
             'tags'  => $tags,
         ];
 
-        return $this->responder->render($response, 'tag_archive.twig', $viewData);
+        return $this->render($response, 'tag_archive.twig', $viewData);
     }
 }

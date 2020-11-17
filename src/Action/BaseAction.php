@@ -5,8 +5,8 @@ namespace App\Action;
 use Nhymxu\Responder;
 use App\Domain\Blog\BlogRepository;
 use Psr\Container\ContainerInterface;
+use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
-use Slim\Interfaces\RouteParserInterface;
 use Slim\Routing\RouteContext;
 
 /**
@@ -111,5 +111,12 @@ class BaseAction
         }
 
         return $page;
+    }
+
+    public function render(ResponseInterface $response, string $template, array $data = []): ResponseInterface
+    {
+        return $this->responder
+            ->render($response, $template, $data)
+            ->withHeader('Content-Type', 'text/html');
     }
 }
