@@ -30,6 +30,6 @@ final class HomeAction extends BaseAction
 
         $viewData = $this->get_pagination_posts($request, $filter, $uriData);
 
-        return $this->responder->render($response, 'archive.twig', $viewData);
+        return $this->render($response, 'archive.twig', $viewData);
     }
 }

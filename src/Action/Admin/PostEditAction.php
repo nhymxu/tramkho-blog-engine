@@ -2,43 +2,10 @@
 
 namespace App\Action\Admin;
 
-use App\Action\BaseAction;
-use App\Domain\Blog\AdminRepository;
-use Nhymxu\Responder;
-use Psr\Container\ContainerInterface;
 use Psr\Http\Message\{ResponseInterface, ServerRequestInterface};
 
-final class PostEditAction
+final class PostEditAction extends BaseAction
 {
-    /**
-     * @var Responder
-     */
-    protected $responder;
-
-    /**
-     * @var AdminRepository
-     */
-    protected $repository;
-
-    /**
-     * @var ContainerInterface
-     */
-    protected $container;
-
-    /**
-     * PostAction constructor.
-     *
-     * @param Responder $responder The responder
-     * @param AdminRepository $repository
-     * @param ContainerInterface $container
-     */
-    public function __construct(Responder $responder, AdminRepository $repository, ContainerInterface $container)
-    {
-        $this->responder = $responder;
-        $this->repository = $repository;
-        $this->container = $container;
-    }
-
     /**
      * Invoke.
      *
@@ -75,6 +42,6 @@ final class PostEditAction
             'all_tags'      => $all_tags,
         ];
 
-        return $this->responder->render($response, '@admin/post.twig', $viewData);
+        return $this->render($response, '@admin/post.twig', $viewData);
     }
 }

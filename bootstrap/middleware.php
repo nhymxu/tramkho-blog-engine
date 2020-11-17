@@ -1,6 +1,6 @@
 <?php
 
-use Nhymxu\Middleware\{TrailingSlash, UrlGeneratorMiddleware};
+use Nhymxu\Middleware\{HtmlMinifierMiddleware, TrailingSlash, UrlGeneratorMiddleware};
 use Slim\App;
 use Slim\Views\{TwigMiddleware, Twig};
 use Slim\Middleware\ErrorMiddleware;
@@ -23,4 +23,5 @@ return static function (App $app) {
 
     // Catch exceptions and errors
     $app->add(ErrorMiddleware::class);
+    $app->add(new HtmlMinifierMiddleware());
 };

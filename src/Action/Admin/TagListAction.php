@@ -27,6 +27,6 @@ final class TagListAction extends BaseAction
             'tags'  => $tags,
         ];
 
-        return $this->responder->render($response, '@admin/tag_list.twig', $viewData);
+        return $this->render($response, '@admin/tag_list.twig', $viewData);
     }
 }

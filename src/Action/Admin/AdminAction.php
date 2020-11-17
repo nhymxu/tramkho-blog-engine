@@ -21,6 +21,6 @@ final class AdminAction extends BaseAction
      */
     public function __invoke(ServerRequestInterface $request, ResponseInterface $response, array $args = []): ResponseInterface
     {
-        return $this->responder->render($response, '@admin/index.twig', []);
+        return $this->render($response, '@admin/index.twig', []);
     }
 }

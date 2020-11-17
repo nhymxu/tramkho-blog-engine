@@ -29,6 +29,6 @@ final class PostAction extends BaseAction
             'tags'  => $tags,
         ];
 
-        return $this->responder->render($response, 'post.twig', $viewData);
+        return $this->render($response, 'post.twig', $viewData);
     }
 }

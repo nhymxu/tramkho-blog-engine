@@ -23,6 +23,6 @@ final class PostNewAction extends BaseAction
             'post_action' => 'new',
         ];
 
-        return $this->responder->render($response, '@admin/post.twig', $viewData);
+        return $this->render($response, '@admin/post.twig', $viewData);
     }
 }

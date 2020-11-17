@@ -35,6 +35,6 @@ final class TagAction extends BaseAction
         $viewData = $this->get_pagination_posts($request, $filter, $uriData);
         $viewData['page_title'] = 'Tag: ' . $tag['name'] . $viewData['page_title'];
 
-        return $this->responder->render($response, 'archive.twig', $viewData);
+        return $this->render($response, 'archive.twig', $viewData);
     }
 }

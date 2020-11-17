@@ -44,6 +44,6 @@ final class PostListAction extends BaseAction
 
         $viewData = $this->get_pagination_posts($request, $filter, $uriData, 15);
 
-        return $this->responder->render($response, '@admin/post_list.twig', $viewData);
+        return $this->render($response, '@admin/post_list.twig', $viewData);
     }
 }
