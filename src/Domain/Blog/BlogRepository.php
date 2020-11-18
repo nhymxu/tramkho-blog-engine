@@ -258,8 +258,9 @@ class BlogRepository
                 LEFT JOIN tag t ON pt.tag_id = t.id
                 LEFT JOIN post p ON pt.post_id = p.id
                 WHERE p.status = 'publish'
-                GROUP BY pt.tag_id;
-                ";
+                GROUP BY pt.tag_id
+                ORDER BY t.name
+                ;";
 
         $statement = $this->connection->query($sql);
 
