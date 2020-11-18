@@ -10,7 +10,7 @@ return static function (SlimApp $app)
 {
     $app->group('/admin', function (RouteCollectorProxy $group) {
         $group->get('', Admin\AdminAction::class)->setName('admin:home');
-        $group->get('/posts', Admin\PostListAction::class)->setName('admin:post_list');
+        $group->get('/post', Admin\PostListAction::class)->setName('admin:post_list');
         $group->get('/post/edit/{post-id}', Admin\PostEditAction::class)->setName('admin:post_edit');
         $group->get('/post/new', Admin\PostNewAction::class)->setName('admin:post_new');
         $group->post('/post/save', Admin\PostSaveAction::class)->setName('admin:post_save');
