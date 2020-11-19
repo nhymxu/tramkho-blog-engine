@@ -23,7 +23,8 @@ final class HtmlMinifierMiddleware implements MiddlewareInterface
     {
         $response = $handler->handle($request);
 
-        if (stripos($response->getHeaderLine('Content-Type'), 'text/html') === 0) {
+        if (NX_DEBUG !== true && stripos($response->getHeaderLine('Content-Type'), 'text/html') === 0)
+        {
             // $response->getBody()->getContents()
             $compressedBody = $this->minify((string) $response->getBody());
 
@@ -31,7 +32,6 @@ final class HtmlMinifierMiddleware implements MiddlewareInterface
 
             return $response->withBody($stream)->withoutHeader('Content-Length');
         }
-
 
         return $response;
     }

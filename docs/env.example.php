@@ -1,5 +1,8 @@
 <?php
 
+// enable this line to stop minify html output
+// define('NX_DEBUG', true);
+
 $settings['error']['display_error_details'] = true;
 $settings['error']['log_errors'] = true;
 $settings['error']['log_error_details'] = true;
