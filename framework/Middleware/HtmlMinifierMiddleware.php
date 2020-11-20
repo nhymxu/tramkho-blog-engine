@@ -23,9 +23,10 @@ final class HtmlMinifierMiddleware implements MiddlewareInterface
     {
         $response = $handler->handle($request);
 
-        if (NX_DEBUG !== true && stripos($response->getHeaderLine('Content-Type'), 'text/html') === 0)
-        {
-            // $response->getBody()->getContents()
+        if (
+            (!defined('NX_DEBUG') || NX_DEBUG === false)
+            && stripos($response->getHeaderLine('Content-Type'), 'text/html') === 0
+        ) {
             $compressedBody = $this->minify((string) $response->getBody());
 
             $stream = (new StreamFactory)->createStream($compressedBody);
