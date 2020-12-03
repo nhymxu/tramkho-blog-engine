@@ -17,7 +17,7 @@
       #}
       <div>
         <p class="{% if post.status != 'trash' %}font-semibold{% endif %}">{{ post.title }}</p>
-        <p class="text-xs text-gray-600 dark:text-gray-400">&nbsp;</p>
+        <p class="text-xs text-gray-600 dark:text-gray-400">{{ post.slug }}</p>
       </div>
     </div>
   </td> <!-- name -->
