@@ -1,44 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>{% block title -%}Admin panel{%- endblock %}</title>
+    <title>{% block title -%}Admin panel{%- endblock %}</title>
 
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <base href="{{ base_path() }}/">
+    <base href="{{ base_path() }}/">
 
-  <meta name="description" content="description here">
-  <meta name="keywords" content="keywords,here">
+    <meta name="description" content="description here">
+    <meta name="keywords" content="keywords,here">
 
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
-    <link href="https://unpkg.com/tailwindcss@next/dist/tailwind.min.css" rel="stylesheet">
-    <!--Replace with your tailwind.css once created-->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.min.js" integrity="sha256-XF29CBwU1MWLaGEnsELogU6Y6rcc5nCkhhx89nFMIDQ=" crossorigin="anonymous"></script>
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
 </head>
 
 <body class="bg-gray-100 font-sans leading-normal tracking-normal">
-  <!-- Header -->
-  {% include '@admin/_partial/header.twig' %}
-  <!-- /Header -->
+    <!-- Header -->
+    {% include '@admin/_partial/header.twig' %}
+    <!-- /Header -->
 
-  <!--Container-->
-  <div class="container w-full mx-auto pt-10">
+    <!--Container-->
+    <div class="container w-full mx-auto pt-10">
     <div class="w-full px-4 md:px-0 md:mt-8 mb-16 text-gray-800 leading-normal">
-      <!-- Console Content -->
-      {% block body %}{% endblock %}
-      <!--/ Console Content -->
+        <!-- Console Content -->
+        {% block body %}{% endblock %}
+        <!--/ Console Content -->
     </div>
-  </div>
-  <!--/container-->
+    </div>
+    <!--/container-->
 
-  <!-- Footer -->
-  {% include '@admin/_partial/footer.twig' %}
-  <!-- /Footer -->
+    <!-- Footer -->
+    {% include '@admin/_partial/footer.twig' %}
+    <!-- /Footer -->
 
-  <link href="static/theme/admin/assets/fontawesome-5/css/all.css" rel="stylesheet">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.min.js" integrity="sha256-XF29CBwU1MWLaGEnsELogU6Y6rcc5nCkhhx89nFMIDQ=" crossorigin="anonymous"></script>
-  {% block footer_script %}{% endblock %}
+    <link href="static/theme/admin/assets/fontawesome-5/css/all.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.min.js" integrity="sha256-XF29CBwU1MWLaGEnsELogU6Y6rcc5nCkhhx89nFMIDQ=" crossorigin="anonymous"></script>
+
+    {% block footer_script %}{% endblock %}
 </body>
 </html>
