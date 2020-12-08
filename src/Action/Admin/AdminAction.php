@@ -1,7 +1,6 @@
 <?php
 namespace App\Action\Admin;
 
-use App\Action\BaseAction;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 
@@ -19,8 +18,18 @@ final class AdminAction extends BaseAction
      *
      * @return ResponseInterface The response
      */
-    public function __invoke(ServerRequestInterface $request, ResponseInterface $response, array $args = []): ResponseInterface
+    public function __invoke(
+        ServerRequestInterface $request,
+        ResponseInterface $response,
+        array $args
+    ): ResponseInterface
     {
-        return $this->render($response, '@admin/index.twig', []);
+        $post_statistic = $this->repository->get_post_statistic();
+
+        $viewData = [
+            'post_statistic' => $post_statistic,
+        ];
+
+        return $this->render($response, '@admin/index.twig', $viewData);
     }
 }
