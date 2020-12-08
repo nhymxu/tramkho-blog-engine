@@ -5,7 +5,7 @@
 {% endblock %}
 
 {% block og_metadata %}
-  {% set desc = post.content | trim | u.truncate(200, '...', false) %}
+  {% set desc = post.content | trim | u.truncate(150, '...', false) %}
 
   <meta name="description" content="{{ desc }}">
 
