@@ -10,22 +10,23 @@
 
     <base href="{{ base_path() }}/">
 
-    <meta name="description" content="{{ page_description }}">
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="{{ block['title'] }}">
-    <meta property="og:url" content="{{ og_url }}">
-    <meta property="og:site_name" content="Dz notes">
-    <meta property="og:description" content="{{ og_site_desc }}">
-
     <link rel="short icon" href="{{ page_icon }}">
 
-    {{ macros.gtm_script() }}
+    <meta property="og:site_name" content="dungnt.net">
+    <meta name="generator" content="tramkho blog engine">
+
+    {% block og_metadata %}
+        <meta property="og:title" content="Dz - nhymxu">
+        <meta property="og:type" content="website">
+        <meta property="og:description" content="Hơi gầy, hơi nhạt, não cá vàng và thích tạp nham...">
+        <meta name="description" content="Hơi gầy, hơi nhạt, não cá vàng và thích tạp nham...">
+    {% endblock %}
 
     {{ macros.css('static/theme/simple/assets/css/style.css') }}
 </head>
 <body>
 
-{{ macros.gtm_frame() }}
+{{ macros.gtm_script() }}
 
 <!-- Header -->
 <header>
