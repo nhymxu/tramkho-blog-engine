@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "9c0397009a7215d1fca092da015e63b7",
+    "content-hash": "328c89455fb3fb6b7946137b6d44b4f5",
     "packages": [
         {
             "name": "fig/http-message-util",
@@ -956,34 +956,35 @@
         },
         {
             "name": "selective/basepath",
-            "version": "1.0.0",
+            "version": "2.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/selective-php/basepath.git",
-                "reference": "c2e9b28acb83999aeb299ba628b964226f71044f"
+                "reference": "c843c4866d3d721bf5cda53e52f75d69ad1e2199"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/selective-php/basepath/zipball/c2e9b28acb83999aeb299ba628b964226f71044f",
-                "reference": "c2e9b28acb83999aeb299ba628b964226f71044f",
+                "url": "https://api.github.com/repos/selective-php/basepath/zipball/c843c4866d3d721bf5cda53e52f75d69ad1e2199",
+                "reference": "c843c4866d3d721bf5cda53e52f75d69ad1e2199",
                 "shasum": ""
             },
             "require": {
-                "php": "^7.1",
-                "psr/http-server-middleware": "^1.0"
+                "php": "^7.2 || ^8.0",
+                "psr/http-server-middleware": "^1"
             },
             "require-dev": {
-                "overtrue/phplint": "^1.1",
-                "phpstan/phpstan-shim": "^0.11",
-                "phpunit/phpunit": "^7",
-                "slim/psr7": "^0.6.0",
-                "slim/slim": "^4.3",
-                "squizlabs/php_codesniffer": "^3.4"
+                "friendsofphp/php-cs-fixer": "^2",
+                "overtrue/phplint": "^2",
+                "phpstan/phpstan": "0.*",
+                "phpunit/phpunit": "^8 || ^9",
+                "slim/psr7": "^1",
+                "slim/slim": "^4",
+                "squizlabs/php_codesniffer": "^3"
             },
             "type": "library",
             "autoload": {
                 "psr-4": {
-                    "Selective\\BasePath\\": "src"
+                    "Selective\\BasePath\\": "src/"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -997,7 +998,7 @@
                 "slim",
                 "slim4"
             ],
-            "time": "2020-04-11T12:57:24+00:00"
+            "time": "2020-12-09T22:19:09+00:00"
         },
         {
             "name": "slim/psr7",
