@@ -103,4 +103,42 @@ class AdminRepository extends BlogRepository
         $stmt = $this->connection->prepare($sql);
         $stmt->execute($payload);
     }
+
+    public function get_post_statistic(): array
+    {
+        $stmt = $this->connection->query('SELECT status, COUNT(1) AS cnt FROM post GROUP BY status');
+
+        if (!$stmt) {
+            $stmt = null;
+            return [];
+        }
+
+        $records = $stmt->fetchAll();
+
+        $statement = null;
+
+        if(!$records) {
+            return [];
+        }
+
+        $statistic = [];
+
+        foreach($records as $row) {
+            $statistic[$row['status']] = (int)$row['cnt'];
+        }
+
+        $statistic = array_merge(
+            [
+                'publish'   => 0,
+                'draft'     => 0,
+                'trash'     => 0,
+                'private'   => 0,
+            ],
+            $statistic
+        );
+
+        $statistic['total'] = array_sum($statistic);
+
+        return $statistic;
+    }
 }

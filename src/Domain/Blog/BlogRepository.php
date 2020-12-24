@@ -62,6 +62,7 @@ class BlogRepository
         $statement = null;
 
         if(!$records) {
+            return [];
             throw new PostNotFoundException(sprintf("Page not found: %s", $page));
         }
 
