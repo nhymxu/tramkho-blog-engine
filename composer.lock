@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "328c89455fb3fb6b7946137b6d44b4f5",
+    "content-hash": "5bcc7cec9b2fd22b56a39597f966fa33",
     "packages": [
         {
             "name": "fig/http-message-util",
@@ -60,16 +60,16 @@
         },
         {
             "name": "icamys/php-sitemap-generator",
-            "version": "2.0.3",
+            "version": "3.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/icamys/php-sitemap-generator.git",
-                "reference": "37321c460b23081e9e21ff0ec67d28e45c2b1108"
+                "reference": "0089bd9582adeec046cc1a963b65ac63f51b0d20"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/icamys/php-sitemap-generator/zipball/37321c460b23081e9e21ff0ec67d28e45c2b1108",
-                "reference": "37321c460b23081e9e21ff0ec67d28e45c2b1108",
+                "url": "https://api.github.com/repos/icamys/php-sitemap-generator/zipball/0089bd9582adeec046cc1a963b65ac63f51b0d20",
+                "reference": "0089bd9582adeec046cc1a963b65ac63f51b0d20",
                 "shasum": ""
             },
             "require": {
@@ -78,12 +78,13 @@
                 "ext-mbstring": "*",
                 "ext-simplexml": "*",
                 "ext-spl": "*",
+                "ext-xml": "*",
                 "ext-zlib": "*",
-                "php": "^7.2"
+                "php": "^7.3 || ^8.0"
             },
             "require-dev": {
-                "php-mock/php-mock-phpunit": "^2.5",
-                "phpunit/phpunit": "^8.5"
+                "php-mock/php-mock-phpunit": "^2.6.0",
+                "phpunit/phpunit": "^9.3.8"
             },
             "type": "library",
             "autoload": {
@@ -112,7 +113,7 @@
                 "generator",
                 "php"
             ],
-            "time": "2020-09-09T19:31:52+00:00"
+            "time": "2020-12-24T20:07:49+00:00"
         },
         {
             "name": "league/commonmark",
@@ -2645,12 +2646,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Roave/SecurityAdvisories.git",
-                "reference": "d5961914bf7f90e81af509b81e51450bff419815"
+                "reference": "49da07b20a780d3fca9fe12e1db27975a2910c18"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Roave/SecurityAdvisories/zipball/d5961914bf7f90e81af509b81e51450bff419815",
-                "reference": "d5961914bf7f90e81af509b81e51450bff419815",
+                "url": "https://api.github.com/repos/Roave/SecurityAdvisories/zipball/49da07b20a780d3fca9fe12e1db27975a2910c18",
+                "reference": "49da07b20a780d3fca9fe12e1db27975a2910c18",
                 "shasum": ""
             },
             "conflict": {
@@ -2807,8 +2808,8 @@
                 "scheb/two-factor-bundle": ">=0,<3.26|>=4,<4.11",
                 "sensiolabs/connect": "<4.2.3",
                 "serluck/phpwhois": "<=4.2.6",
-                "shopware/core": "<=6.3.2",
-                "shopware/platform": "<=6.3.2",
+                "shopware/core": "<=6.3.4",
+                "shopware/platform": "<=6.3.4",
                 "shopware/shopware": "<5.6.9",
                 "silverstripe/admin": ">=1.0.3,<1.0.4|>=1.1,<1.1.1",
                 "silverstripe/assets": ">=1,<1.4.7|>=1.5,<1.5.2",
@@ -2954,7 +2955,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2020-12-08T15:02:56+00:00"
+            "time": "2020-12-21T18:11:20+00:00"
         }
     ],
     "aliases": [],
