@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "5bcc7cec9b2fd22b56a39597f966fa33",
+    "content-hash": "3a3652d6485e1eb601c8465751093281",
     "packages": [
         {
             "name": "fig/http-message-util",
@@ -60,16 +60,16 @@
         },
         {
             "name": "icamys/php-sitemap-generator",
-            "version": "3.0.2",
+            "version": "3.0.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/icamys/php-sitemap-generator.git",
-                "reference": "0089bd9582adeec046cc1a963b65ac63f51b0d20"
+                "reference": "76ac9a026b0bb3a20b1e9ac84ce11145a3a56a9e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/icamys/php-sitemap-generator/zipball/0089bd9582adeec046cc1a963b65ac63f51b0d20",
-                "reference": "0089bd9582adeec046cc1a963b65ac63f51b0d20",
+                "url": "https://api.github.com/repos/icamys/php-sitemap-generator/zipball/76ac9a026b0bb3a20b1e9ac84ce11145a3a56a9e",
+                "reference": "76ac9a026b0bb3a20b1e9ac84ce11145a3a56a9e",
                 "shasum": ""
             },
             "require": {
@@ -113,7 +113,7 @@
                 "generator",
                 "php"
             ],
-            "time": "2020-12-24T20:07:49+00:00"
+            "time": "2020-12-26T21:34:42+00:00"
         },
         {
             "name": "league/commonmark",
