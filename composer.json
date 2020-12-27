@@ -9,7 +9,7 @@
         }
     ],
     "require": {
-        "php": "^7.3",
+        "php": "^7.3|^8.0",
         "ext-json": "*",
         "ext-pdo": "*",
         "icamys/php-sitemap-generator": "^3.0",
