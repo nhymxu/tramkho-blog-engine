@@ -1,5 +1,4 @@
 @charset "UTF-8";
-@import url("https://fonts.googleapis.com/css?family=Anonymous+Pro");
 
 .hljs {
     display: block;
@@ -30,7 +29,7 @@
 }
 
 body, html {
-    font: 16px/1.618 Anonymous Pro;
+    font: 16px/1.618 Anonymous Pro, monospace;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizelegibility
