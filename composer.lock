@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "3a3652d6485e1eb601c8465751093281",
+    "content-hash": "d4d76e4a532bc0cca16b0d9c2432b210",
     "packages": [
         {
             "name": "fig/http-message-util",
@@ -60,16 +60,16 @@
         },
         {
             "name": "icamys/php-sitemap-generator",
-            "version": "3.0.4",
+            "version": "4.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/icamys/php-sitemap-generator.git",
-                "reference": "76ac9a026b0bb3a20b1e9ac84ce11145a3a56a9e"
+                "reference": "eeeab901fdc3479dc456b9ff27a808599e2705b8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/icamys/php-sitemap-generator/zipball/76ac9a026b0bb3a20b1e9ac84ce11145a3a56a9e",
-                "reference": "76ac9a026b0bb3a20b1e9ac84ce11145a3a56a9e",
+                "url": "https://api.github.com/repos/icamys/php-sitemap-generator/zipball/eeeab901fdc3479dc456b9ff27a808599e2705b8",
+                "reference": "eeeab901fdc3479dc456b9ff27a808599e2705b8",
                 "shasum": ""
             },
             "require": {
@@ -79,6 +79,7 @@
                 "ext-simplexml": "*",
                 "ext-spl": "*",
                 "ext-xml": "*",
+                "ext-xmlwriter": "*",
                 "ext-zlib": "*",
                 "php": "^7.3 || ^8.0"
             },
@@ -113,7 +114,7 @@
                 "generator",
                 "php"
             ],
-            "time": "2020-12-26T21:34:42+00:00"
+            "time": "2020-12-30T10:46:46+00:00"
         },
         {
             "name": "league/commonmark",

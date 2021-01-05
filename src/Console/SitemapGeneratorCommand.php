@@ -74,8 +74,8 @@ final class SitemapGeneratorCommand extends Command
         }
 
         $generator = new SitemapGenerator($home_url, $settings['public_dir']);
-        $generator->toggleGZipFileCreation();
-        $generator->setMaxURLsPerSitemap(50000);
+        $generator->enableCompression();
+        $generator->setMaxUrlsPerSitemap(50000);
         $generator->setSitemapFileName("sitemap.xml");
         $generator->setSitemapIndexFileName("sitemap-index.xml");
 
@@ -98,8 +98,8 @@ final class SitemapGeneratorCommand extends Command
             }
         }
 
-        $generator->createSitemap();
-        $generator->writeSitemap();
+        $generator->flush();
+        $generator->finalize();
 
         $output->writeln(sprintf('-----------------'));
         $output->writeln(sprintf('Generated sitemap.'));
