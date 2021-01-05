@@ -1,3 +1,4 @@
+{% import "helpers/macros.twig" as macros %}
 {% extends "_layout.twig" %}
 
 {% block title %}
@@ -65,4 +66,11 @@
     #}
     <!-- /Paging -->
 
+{% endblock %}
+
+{% block footer_blk %}
+{{ macros.js('static/theme/simple/assets/js/highlight.pack.js') }}
+<script type="text/javascript">
+    hljs.initHighlightingOnLoad();
+</script>
 {% endblock %}
