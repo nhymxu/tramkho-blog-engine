@@ -60,16 +60,16 @@
         },
         {
             "name": "icamys/php-sitemap-generator",
-            "version": "4.3.0",
+            "version": "4.3.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/icamys/php-sitemap-generator.git",
-                "reference": "eeeab901fdc3479dc456b9ff27a808599e2705b8"
+                "reference": "e7799ab5ca127a5b1c36bc2fc97f89737e8578e2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/icamys/php-sitemap-generator/zipball/eeeab901fdc3479dc456b9ff27a808599e2705b8",
-                "reference": "eeeab901fdc3479dc456b9ff27a808599e2705b8",
+                "url": "https://api.github.com/repos/icamys/php-sitemap-generator/zipball/e7799ab5ca127a5b1c36bc2fc97f89737e8578e2",
+                "reference": "e7799ab5ca127a5b1c36bc2fc97f89737e8578e2",
                 "shasum": ""
             },
             "require": {
@@ -114,7 +114,7 @@
                 "generator",
                 "php"
             ],
-            "time": "2020-12-30T10:46:46+00:00"
+            "time": "2021-01-13T18:54:05+00:00"
         },
         {
             "name": "league/commonmark",
