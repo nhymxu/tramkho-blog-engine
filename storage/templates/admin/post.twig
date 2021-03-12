@@ -40,7 +40,11 @@
         </label>
         <div class="relative">
           <select class="block appearance-none w-full bg-grey-lighter border border-grey-lighter text-grey-darker py-3 px-4 pr-8 rounded" id="post-status" name="post_status">
-            {% for i in ['publish', 'draft', 'private', 'trash'] %}
+            {% set post_status_list = ['draft', 'publish', 'private'] %}
+            {% if post_action != 'new' %}
+              {% set post_status_list = post_status_list|merge(['trash']) %}
+            {% endif %}
+            {% for i in post_status_list %}
               <option value="{{ i }}" {% if post.status == i %}selected{% endif %}>{{ i|capitalize }}</option>
             {% endfor %}
           </select>
