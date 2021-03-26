@@ -94,7 +94,7 @@ final class SitemapGeneratorCommand extends Command
                 if (!$date_update) {
                     $date_update = null;
                 }
-                $generator->addURL($post['slug'], $date_update, 'monthly', 0.2);
+                $generator->addURL('/' . $post['slug'], $date_update, 'monthly', 0.2);
             }
         }
 
