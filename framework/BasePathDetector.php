@@ -65,6 +65,7 @@ class BasePathDetector
             $basePos = strpos($path, $baseName) ?: 0;
             $baseUrl .= substr($path, 0, $basePos) . $baseName;
         }
+
         // If the baseUrl is empty, then simply return it.
         if (empty($baseUrl)) {
             return '';
@@ -72,6 +73,10 @@ class BasePathDetector
 
         // Directory portion of base path matches.
         $baseDir = str_replace('\\', '/', dirname($baseUrl));
+
+        if ($baseDir === '/') {
+            return '';
+        }
 
         if (0 === strpos($requestUri, $baseDir)) {
             return $baseDir;
