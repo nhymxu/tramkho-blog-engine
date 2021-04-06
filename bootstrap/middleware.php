@@ -1,12 +1,14 @@
 <?php
 
-use Nhymxu\Middleware\{HtmlMinifierMiddleware, TrailingSlash, UrlGeneratorMiddleware};
+use Nhymxu\Middleware\{HtmlMinifierMiddleware, ResponseTimeMiddleware, TrailingSlash, UrlGeneratorMiddleware};
 use Slim\App;
 use Slim\Views\{TwigMiddleware, Twig};
 use Slim\Middleware\ErrorMiddleware;
 use Tuupola\Middleware\HttpBasicAuthentication;
 
 return static function (App $app) {
+    $app->add(ResponseTimeMiddleware::class);
+
     // Parse json, form data and xml
     $app->addBodyParsingMiddleware();
 
