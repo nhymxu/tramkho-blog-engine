@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "d4d76e4a532bc0cca16b0d9c2432b210",
+    "content-hash": "f6103a10588c4bbe6014efec215d2915",
     "packages": [
         {
             "name": "fig/http-message-util",
@@ -320,6 +320,72 @@
                 }
             ],
             "time": "2020-12-14T13:15:25+00:00"
+        },
+        {
+            "name": "nhymxu/php-floc-disable",
+            "version": "v1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/nhymxu/php-floc-disable.git",
+                "reference": "a9c65df89ff467f86fc2e3f92290d11df1b37057"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/nhymxu/php-floc-disable/zipball/a9c65df89ff467f86fc2e3f92290d11df1b37057",
+                "reference": "a9c65df89ff467f86fc2e3f92290d11df1b37057",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.3 || ^8.0",
+                "psr/http-server-middleware": "^1"
+            },
+            "require-dev": {
+                "nyholm/psr7": "^1.4",
+                "phpunit/phpunit": "^8|^9",
+                "roave/security-advisories": "dev-latest"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Nhymxu\\FlocDisable\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Dũng Nguyễn",
+                    "email": "contact@dungnt.net"
+                }
+            ],
+            "description": "PHP middleware to disable Google's Federated Learning of Cohorts (FLoC) tracking",
+            "homepage": "https://github.com/nhymxu/php-floc-disable",
+            "keywords": [
+                "FLoC",
+                "nhymxu",
+                "php-floc-disable"
+            ],
+            "support": {
+                "issues": "https://github.com/nhymxu/php-floc-disable/issues",
+                "source": "https://github.com/nhymxu/php-floc-disable/tree/v1.0.0"
+            },
+            "funding": [
+                {
+                    "url": "https://nhantien.momo.vn/WTOl9cURX5P",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://www.paypal.me/nhymxu",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://ko-fi.com/nhymxu",
+                    "type": "ko_fi"
+                }
+            ],
+            "time": "2021-05-11T12:24:09+00:00"
         },
         {
             "name": "nikic/fast-route",

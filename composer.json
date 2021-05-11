@@ -15,6 +15,7 @@
         "icamys/php-sitemap-generator": "^4.3",
         "league/commonmark": "^1.5",
         "monolog/monolog": "^2.1",
+        "nhymxu/php-floc-disable": "^1.0",
         "php-di/php-di": "^6.2",
         "rakit/validation": "^1.4",
         "selective/basepath": "^2.0",
