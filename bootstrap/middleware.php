@@ -1,5 +1,6 @@
 <?php
 
+use Nhymxu\FlocDisable\FlocDisableMiddleware;
 use Nhymxu\Middleware\{HtmlMinifierMiddleware, ResponseTimeMiddleware, TrailingSlash, UrlGeneratorMiddleware};
 use Slim\App;
 use Slim\Views\{TwigMiddleware, Twig};
@@ -8,6 +9,7 @@ use Tuupola\Middleware\HttpBasicAuthentication;
 
 return static function (App $app) {
     $app->add(ResponseTimeMiddleware::class);
+    $app->add(FlocDisableMiddleware::class);
 
     // Parse json, form data and xml
     $app->addBodyParsingMiddleware();
