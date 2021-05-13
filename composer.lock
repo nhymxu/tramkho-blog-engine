@@ -323,16 +323,16 @@
         },
         {
             "name": "nhymxu/php-floc-disable",
-            "version": "v1.0.0",
+            "version": "v1.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nhymxu/php-floc-disable.git",
-                "reference": "a9c65df89ff467f86fc2e3f92290d11df1b37057"
+                "reference": "844abf40abbd37f730438a7af1b5482317bef023"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nhymxu/php-floc-disable/zipball/a9c65df89ff467f86fc2e3f92290d11df1b37057",
-                "reference": "a9c65df89ff467f86fc2e3f92290d11df1b37057",
+                "url": "https://api.github.com/repos/nhymxu/php-floc-disable/zipball/844abf40abbd37f730438a7af1b5482317bef023",
+                "reference": "844abf40abbd37f730438a7af1b5482317bef023",
                 "shasum": ""
             },
             "require": {
@@ -369,7 +369,7 @@
             ],
             "support": {
                 "issues": "https://github.com/nhymxu/php-floc-disable/issues",
-                "source": "https://github.com/nhymxu/php-floc-disable/tree/v1.0.0"
+                "source": "https://github.com/nhymxu/php-floc-disable/tree/v1.1.0"
             },
             "funding": [
                 {
@@ -385,7 +385,7 @@
                     "type": "ko_fi"
                 }
             ],
-            "time": "2021-05-11T12:24:09+00:00"
+            "time": "2021-05-13T08:12:45+00:00"
         },
         {
             "name": "nikic/fast-route",
