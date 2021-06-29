@@ -21,6 +21,9 @@ $settings['app_config']['gtm'] = 'GTM-KQR7GC';
 // setup domain for sitemap
 $settings['app_config']['url'] = 'http://localhost/blog';
 
+// custom theme
+$settings['app_config']['theme'] = 'simple';
+
 /**
  * authentication
  */
