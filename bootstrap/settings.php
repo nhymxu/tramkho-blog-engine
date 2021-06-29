@@ -19,6 +19,10 @@ $settings['auth'] = require BOOTSTRAP_DIR . '/config/auth.php';
 
 if (file_exists(ROOT_DIR . '/.env.php')) {
     require ROOT_DIR . '/.env.php';
+
+    if (isset($settings['app_config']['theme']) && $settings['app_config']['theme'] !== '') {
+        $settings['twig']['paths'][0] = TEMPLATE_DIR . '/' . $settings['app_config']['theme'];
+    }
 }
 
 return $settings;
