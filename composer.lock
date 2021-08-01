@@ -64,16 +64,16 @@
         },
         {
             "name": "icamys/php-sitemap-generator",
-            "version": "4.3.2",
+            "version": "4.3.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/icamys/php-sitemap-generator.git",
-                "reference": "06452aee5e5f5c59b9afd79dd6ee1ca9cda74b2d"
+                "reference": "5d54b5679b811cf3345c5bbb0cc45d84a797dfe6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/icamys/php-sitemap-generator/zipball/06452aee5e5f5c59b9afd79dd6ee1ca9cda74b2d",
-                "reference": "06452aee5e5f5c59b9afd79dd6ee1ca9cda74b2d",
+                "url": "https://api.github.com/repos/icamys/php-sitemap-generator/zipball/5d54b5679b811cf3345c5bbb0cc45d84a797dfe6",
+                "reference": "5d54b5679b811cf3345c5bbb0cc45d84a797dfe6",
                 "shasum": ""
             },
             "require": {
@@ -120,9 +120,9 @@
             ],
             "support": {
                 "issues": "https://github.com/icamys/php-sitemap-generator/issues",
-                "source": "https://github.com/icamys/php-sitemap-generator/tree/4.3.2"
+                "source": "https://github.com/icamys/php-sitemap-generator/tree/4.3.3"
             },
-            "time": "2021-01-14T14:38:18+00:00"
+            "time": "2021-08-01T15:07:57+00:00"
         },
         {
             "name": "league/commonmark",
