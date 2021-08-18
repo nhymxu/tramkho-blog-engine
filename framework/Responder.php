@@ -72,6 +72,17 @@ final class Responder
     }
 
     /**
+     * Check template file exists or not
+     *
+     * @param string $template_name
+     * @return bool
+     */
+    public function template_exists(string $template_name): bool
+    {
+        return $this->twig->getLoader()->exists($template_name);
+    }
+
+    /**
      * Creates a redirect for the given url / route name.
      *
      * This method prepares the response object to return an HTTP Redirect
