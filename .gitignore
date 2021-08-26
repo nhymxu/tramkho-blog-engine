@@ -8,9 +8,11 @@
 /bin/convert/vendor/
 
 storage/*
+storage/templates/*/_exclude/
 !storage/logs/.gitkeep
 !storage/uploads/.gitkeep
 !storage/templates
+
 .phpunit.result.cache
 
 public/static/theme

@@ -1,0 +1,28 @@
+{% import "helpers/macros.twig" as macros %}
+<div class="shadow-md mb-4">
+    <nav class="flex flex-wrap items-center mx-auto max-w-3xl rounded-b p-2">
+
+        <a class="flex self-start items-center sm:mr-2 py-1 pl-1 my-auto rounded" href="/">
+            <img class="ml-2 pr-2 mt-auto mb-1" src="{{ macros.theme_asset_url('logo.svg') }}" width="110">
+        </a>
+
+        <a class="btn hover:bg-gray-300 px-1 mx-1 sm:mx-2 active text-black border-b-2 border-green-500 rounded-b-none" href="">
+            <span>Posts</span>
+        </a>
+        <a class="btn hover:bg-gray-300 px-1 mx-1 sm:mx-2 text-gray-700" href="{{ url_for('tag_list') }}">
+            <span>Tags</span>
+        </a>
+        <a class="btn hover:bg-gray-300 px-1 mx-1 sm:mx-2 text-gray-700 hidden sm:block" href="https://goo.gl/IPnXxD">
+            <span>Contact</span>
+        </a>
+
+        <div class="ml-auto flex items-center">
+            <a class="ml-1" href=""><button class="btn btn-sm btn-blue">Subscribe</button></a>
+            <a class="ml-2 hidden sm:block" href="">
+                <button class="btn btn-sm btn-gray hover:bg-green-600 hover:border-green-600 px-1">
+                    <svg class="feather"><use xlink:href="{{ macros.theme_asset_url('fonts/feather-sprite.svg#rss') }}"/></svg>
+                </button>
+            </a>
+        </div>
+    </nav>
+</div>

@@ -1,0 +1,48 @@
+{% import "helpers/macros.twig" as macros %}
+{% extends "_layout.twig" %}
+
+{% block title %}
+    {{ post.title }}
+{% endblock %}
+
+{% block og_metadata %}
+    {% set desc = post.content | trim | u.truncate(150, '...', false) %}
+
+    <meta name="description" content="{{ desc }}">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="{{ post.title }}">
+    <meta property="og:description" content="{{ desc }}">
+    <meta property="og:url" content="{{ full_url_for('post', {'post-slug': post.slug}) }}">
+
+    <meta property="article:published_time" content="{{ post.created_at|date('c') }}">
+    <meta property="article:modified_time" content="{{ post.updated_at|date('c') }}">
+{% endblock %}
+
+{% block body %}
+<div class="container">
+
+    <div class="mb-6">
+        <h1 class="mb-0">{{ post.title }}</h1>
+        {% include '_partials/date-modified.twig' %}
+        <div class="mb-4">
+            {% include '_partials/tags.twig' %}
+        </div>
+    </div>
+
+    <article class="mb-8">
+        {{ post.content | markdown_to_html }}
+    </article>
+
+    {% include '_partials/divider-icons.twig' %}
+
+</div>
+{% endblock %}
+
+{% block footer_blk %}
+    {{ macros.css('//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.2.0/styles/github.min.css') }}
+    {{ macros.js('//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.2.0/highlight.min.js') }}
+    <script type="text/javascript">
+        hljs.initHighlightingOnLoad();
+    </script>
+{% endblock %}
