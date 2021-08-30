@@ -14,13 +14,13 @@
     <section class="container article-list">
     {% for post in posts %}
 
-        {% if tag_year != post.created_at|date('Y') %}
-            {% set tag_year = post.created_at|date('Y') %}
+        {% if tag_year != post.published_at|date('Y') %}
+            {% set tag_year = post.published_at|date('Y') %}
             <h3>{{ tag_year }}</h3>
         {% endif %}
 
         <article id="{{ post.slug }}" itemscope itemprop="blogPost">
-            <time>{{ post.created_at|date('M d.') }}</time>
+            <time>{{ post.published_at|date('M d.') }}</time>
             <h4 itemprop="name">
                 <a href="{{ url_for('post', { 'post-slug': post.slug }) }}" itemprop="url">{{ post.title }}</a>
             </h4>

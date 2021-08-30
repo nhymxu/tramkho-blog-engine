@@ -48,6 +48,10 @@ final class PostSaveAction extends BaseAction
             $post_id = (int)$payload['post_id'];
         }
 
+        if ($data['post_status'] === 'publish') {
+            $this->repository->updatePostPublishTime($post_id, $now);
+        }
+
         $tags = $this->repository->getPostTag($post_id);
         $tag_ids = [];
         foreach ($tags as $tag) {

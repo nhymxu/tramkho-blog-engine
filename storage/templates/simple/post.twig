@@ -15,7 +15,7 @@
   <meta property="og:description" content="{{ desc }}">
   <meta property="og:url" content="{{ full_url_for('post', {'post-slug': post.slug}) }}">
 
-  <meta property="article:published_time" content="{{ post.created_at|date('c') }}">
+  <meta property="article:published_time" content="{{ post.published_at|date('c') }}">
   <meta property="article:modified_time" content="{{ post.updated_at|date('c') }}">
 {% endblock %}
 
@@ -26,8 +26,8 @@
             <h2 class="title" itemprop="name">{{ post.title }}</h2>
 
             <h4 class="time">
-              <time datetime="{{ post.created_at }}" itemprop="datePublished">
-                  {{ post.created_at }}
+              <time datetime="{{ post.published_at }}" itemprop="datePublished">
+                  {{ post.published_at }}
               </time>
             </h4>
 
