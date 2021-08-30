@@ -3,15 +3,14 @@
 {% set tag_year = "" %}
 
 {% block body %}
-    <section id="content" class="container">
         {% for post in posts %}
         <article id="{{ post.slug }}" class="article article-type-index" itemscope itemprop="blogPost">
             <h2 class="title" itemprop="name">{{ post.title }}</h2>
 
             <h4 class="time">
-                <time datetime="{{ post.created_at }}" itemprop="datePublished">
+                <time datetime="{{ post.published_at }}" itemprop="datePublished">
                     Saturday, August 01, 2020
-                    <!-- {{ post.created_at }} -->
+                    <!-- {{ post.published_at }} -->
                 </time>
             </h4>
 

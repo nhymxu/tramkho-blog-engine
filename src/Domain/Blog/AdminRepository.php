@@ -104,6 +104,19 @@ class AdminRepository extends BlogRepository
         $stmt->execute($payload);
     }
 
+    public function updatePostPublishTime(int $post_id, string $publish_time)
+    {
+        $sql = "UPDATE post
+                SET published_at = :publish_time
+                WHERE id = :post_id AND published_at = ''";
+
+        $stmt = $this->connection->prepare($sql);
+        $stmt->execute([
+            'post_id' => $post_id,
+            'published_at' => $publish_time
+        ]);
+    }
+
     public function get_post_statistic(): array
     {
         $stmt = $this->connection->query('SELECT status, COUNT(1) AS cnt FROM post GROUP BY status');

@@ -34,7 +34,7 @@ class BlogRepository
     {
         $offset = ($page - 1) * $per_page;
 
-        $sql = 'SELECT p.id, p.title, p.slug, p.status, p.created_at, p.updated_at FROM post p';
+        $sql = 'SELECT p.id, p.title, p.slug, p.status, p.created_at, p.updated_at, p.published_at FROM post p';
         $bind_value = [
             'offset'    => $offset,
             'row_count' => $per_page,

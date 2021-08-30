@@ -33,14 +33,15 @@ create table comment
 
 create table post
 (
-    id         integer not null,
-    slug       text default '' not null,
-    title      text,
-    content    text,
-    wp_content text,
-    status     text not null,
-    created_at text not null,
-    updated_at text not null,
+    id              integer not null,
+    slug            text default '' not null,
+    title           text,
+    content         text,
+    wp_content      text,
+    status          text not null,
+    created_at      text not null,
+    updated_at      text not null,
+    published_at    text default '' not null,
     constraint post_pk
         primary key (id autoincrement)
 );
