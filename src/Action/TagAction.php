@@ -36,6 +36,11 @@ final class TagAction extends BaseAction
         $viewData['page_title'] = 'Tag: ' . $tag['name'] . $viewData['page_title'];
         $viewData['tag_name'] = $tag['name'];
 
+        $is_get_post_tag = $this->container->get('settings')['homepage']['get_post_tag'] ?? false;
+        if ($is_get_post_tag) {
+            $viewData['posts'] = $this->get_posts_tags($viewData['posts']);
+        }
+
         $template = 'archive.twig';
         if ($this->responder->template_exists('tag.twig')) {
             $template = 'tag.twig';

@@ -119,4 +119,34 @@ class BaseAction
             ->render($response, $template, $data)
             ->withHeader('Content-Type', 'text/html');
     }
+
+    /**
+     * Get post tags for each post on list
+     *
+     * @param array $post_list
+     * @return array
+     */
+    protected function get_posts_tags(array $post_list)
+    {
+        if (empty($post_list)) {
+            return $post_list;
+        }
+
+        $posts = [];
+        $post_ids = [];
+
+        foreach($post_list as $post) {
+            $post['tags'] = [];
+            $posts[$post['id']] = $post;
+            $post_ids[] = $post['id'];
+        }
+
+        $results = $this->blogRepository->getPostTagList($post_ids);
+
+        foreach($results as $row) {
+            $posts[$row['post_id']]['tags'][] = $row;
+        }
+
+        return $posts;
+    }
 }

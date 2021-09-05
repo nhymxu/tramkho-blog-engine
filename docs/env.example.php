@@ -15,6 +15,9 @@ $settings['twig']['options']['cache_enabled'] = false;
 // ignore post have tag_id listed on homepage
 $settings['homepage']['ignore']['tag'] = [1];
 
+// get post tag on post list or not
+$settings['homepage']['get_post_tag'] = false;
+
 // inject google tag manager script
 $settings['app_config']['gtm'] = 'GTM-KQR7GC';
 
