@@ -18,6 +18,9 @@ $settings['homepage']['ignore']['tag'] = [1];
 // get post tag on post list or not
 $settings['homepage']['get_post_tag'] = false;
 
+// config number of post per page. If not set, default is 20
+$settings['homepage']['post_per_page'] = 10;
+
 // inject google tag manager script
 $settings['app_config']['gtm'] = 'GTM-KQR7GC';
 
