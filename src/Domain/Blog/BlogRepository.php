@@ -281,6 +281,35 @@ class BlogRepository
         return $records;
     }
 
+    /**
+     * Get all tags of list post
+     *
+     * @param array $post_ids
+     * @return array
+     */
+    public function getPostTagList(array $post_ids): array
+    {
+        $post_ids_str  = str_repeat('?,', count($post_ids) - 1) . '?';
+
+        $sql = "SELECT pt.post_id, t.*
+          FROM post_tag pt
+          LEFT JOIN tag t ON pt.tag_id = t.id
+          WHERE pt.post_id IN ({$post_ids_str})";
+
+        $statement = $this->connection->prepare($sql);
+        $statement->execute($post_ids);
+
+        $records = $statement->fetchAll();
+
+        $statement = null;
+
+        if(!$records) {
+            return [];
+        }
+
+        return $records;
+    }
+
     private function buildCondition(array $filter): array
     {
         $where_conditions = [];

@@ -30,6 +30,11 @@ final class HomeAction extends BaseAction
 
         $viewData = $this->get_pagination_posts($request, $filter, $uriData);
 
+        $is_get_post_tag = $this->container->get('settings')['homepage']['get_post_tag'] ?? false;
+        if ($is_get_post_tag) {
+            $viewData['posts'] = $this->get_posts_tags($viewData['posts']);
+        }
+
         return $this->render($response, 'archive.twig', $viewData);
     }
 }
