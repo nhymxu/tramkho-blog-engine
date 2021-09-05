@@ -32,7 +32,9 @@ final class TagAction extends BaseAction
             'data'  => ['tag-slug' => $slug]
         ];
 
-        $viewData = $this->get_pagination_posts($request, $filter, $uriData);
+        $post_per_page = $this->container->get('settings')['homepage']['post_per_page'] ?? 20;
+        $viewData = $this->get_pagination_posts($request, $filter, $uriData, $post_per_page);
+        
         $viewData['page_title'] = 'Tag: ' . $tag['name'] . $viewData['page_title'];
         $viewData['tag_name'] = $tag['name'];
 

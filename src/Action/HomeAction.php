@@ -28,7 +28,8 @@ final class HomeAction extends BaseAction
             'data'  => []
         ];
 
-        $viewData = $this->get_pagination_posts($request, $filter, $uriData);
+        $post_per_page = $this->container->get('settings')['homepage']['post_per_page'] ?? 20;
+        $viewData = $this->get_pagination_posts($request, $filter, $uriData, $post_per_page);
 
         $is_get_post_tag = $this->container->get('settings')['homepage']['get_post_tag'] ?? false;
         if ($is_get_post_tag) {
