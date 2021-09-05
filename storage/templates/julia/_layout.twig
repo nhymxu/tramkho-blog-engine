@@ -1,0 +1,36 @@
+{% import "helpers/macros.twig" as macros %}
+<!doctype html>
+<html lang="vi">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <base href="{{ base_path() }}/">
+
+    <meta property="og:site_name" content="dungnt.net">
+    <meta name="generator" content="tramkho blog engine">
+
+    <title>{% block title -%}Dz - nhymxu{%- endblock %}</title>
+
+    {% block og_metadata -%}
+        <meta property="og:title" content="Dz - nhymxu">
+        <meta property="og:type" content="website">
+        <meta property="og:description" content="Hơi gầy, hơi nhạt, não cá vàng và thích tạp nham...">
+        <meta name="description" content="Hơi gầy, hơi nhạt, não cá vàng và thích tạp nham...">
+    {% endblock %}
+
+    {{ macros.theme_css('css/style.css') }}
+
+    {# {% include '_partials/favicons.twig' %} #}
+</head>
+<body>
+{{ macros.gtm_script() }}
+{% include '_partials/navbar.twig' %}
+{% include '_partials/breadcrumbs.twig' %}
+{% block body %}{% endblock %}
+{% include '_partials/footer.twig' %}
+{# {% include '_partials/script.twig' %} #}
+{% block footer_blk %}{% endblock %}
+</body>
+</html>

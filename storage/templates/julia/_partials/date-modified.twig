@@ -1,0 +1,12 @@
+<div class="mb-2">
+    <p class="text-gray-700 text-sm">
+        <span>Published on </span>
+        <time class="inline-block" datetime="{{ post.created_at }}">{{ post.created_at }}</time>
+
+        {% if post.created_at != post.updated_at %}
+        <span> |</span>
+        <span class="text-blue-700"> Updated</span>
+        <time class="inline-block text-blue-700" datetime="{{ post.updated_at }}"> {{ post.updated_at }}</time>
+        {% endif %}
+    </p>
+</div>

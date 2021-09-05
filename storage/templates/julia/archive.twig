@@ -1,0 +1,21 @@
+{% import "helpers/macros.twig" as macros %}
+{% extends '_layout.twig' %}
+
+{% block title %}
+    {% if page_title %}
+        {{ page_title }} /
+    {% endif %}
+    {{ parent() }}
+{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <h1>Posts</h1>
+
+        <!-- <article>Content</article> -->
+        {% for post in posts %}
+            {% include '_partials/post-card.twig' %}
+        {% endfor %}
+        {% include '_partials/paginator.twig' %}
+    </div>
+{% endblock %}

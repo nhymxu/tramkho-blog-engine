@@ -1,0 +1,55 @@
+{% import "helpers/macros.twig" as macros %}
+{% if page_nav.total > 1 %}
+<div class="divider mb-6">
+    <div class="divider-side border-gray-400"></div>
+    <div class="paginator-nav divider-center">
+
+        {% if page_nav.prev %}
+            <a href="{{ page_nav.prev }}" class="page-link previous">
+        {% else %}
+            <a class="page-link previous disabled">
+        {% endif %}
+            <svg class="feather" width="26" height="26">
+                <use xlink:href="{{ macros.theme_asset_url('fonts/feather-sprite.svg#arrow-left') }}"/>
+            </svg>
+        </a>
+
+        {% set ellipsed, shouldEllipse = false, false %}
+
+        {% for i in range(1, page_nav.total) %}
+            {% set showNumber = false %}
+            {% if i < 3 or page_nav.total - i == 0 %}
+                {% set showNumber = true %}
+            {% elseif i > page_nav.current - 2 and i < page_nav.current + 2 %}
+                {% set showNumber = true %}
+            {% endif %}
+
+            {% if showNumber %}
+                {% set ellipsed, shouldEllipse = false, false %}
+            {% else %}
+                {% set shouldEllipse = not ellipsed %}
+                {% set ellipsed = true %}
+            {% endif %}
+
+            {% if showNumber %}
+                <a href="?page={{ i }}" class="num {% if page_nav.current == i %}active{% endif %} px-3 py-1 sm:px-2 sm:py-0">{{ i }}</a>
+            {% elseif shouldEllipse %}
+                <div class="page-item disabled"><span>&nbsp;&hellip;&nbsp;</span></div>
+            {% endif %}
+
+        {% endfor %}
+
+        {% if page_nav.next %}
+            <a href="{{ page_nav.next }}" class="next">
+        {% else %}
+            <a class="next disabled">
+        {% endif %}
+            <svg class="feather" width="26" height="26">
+                <use xlink:href="{{ macros.theme_asset_url('fonts/feather-sprite.svg#arrow-right') }}"/>
+            </svg>
+        </a>
+
+    </div>
+    <div class="divider-side border-gray-400"></div>
+</div>
+{% endif %}
