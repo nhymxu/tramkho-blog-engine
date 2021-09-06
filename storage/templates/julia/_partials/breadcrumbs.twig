@@ -1,11 +1,13 @@
-{% if current_url() != '/' %}
+{% set current_url = current_url()|strip(base_path(), side='left')|strip(base_path(), side='left') %}
+
+{% if current_url != '/' %}
 
 <div class="container">
     <div class="font-mono text-gray-800 bg-gray-100 border border-gray-200 rounded-lg py-2 px-3">
         {% apply spaceless %}
         <p>
             /<a class="hover:underline text-gray-800" href="/">home</a>
-            <span class="text-green-800">{{ current_url() }}</span>
+            <span class="text-green-800">{{ current_url }}</span>
         </p>
         {% endapply %}
     </div>

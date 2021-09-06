@@ -57,6 +57,7 @@ return [
         // Add extensions
         $twig->addExtension(new MarkdownExtension());
         $twig->addExtension(new StringExtension());
+        $twig->addExtension(new \App\TwigExtension());
 
         $environment = $twig->getEnvironment();
         $environment->addRuntimeLoader(new class implements RuntimeLoaderInterface {
