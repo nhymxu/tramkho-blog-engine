@@ -113,7 +113,7 @@ class AdminRepository extends BlogRepository
         $stmt = $this->connection->prepare($sql);
         $stmt->execute([
             'post_id' => $post_id,
-            'published_at' => $publish_time
+            'publish_time' => $publish_time
         ]);
     }
 
