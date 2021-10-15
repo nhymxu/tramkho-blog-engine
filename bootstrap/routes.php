@@ -3,7 +3,7 @@
 use Slim\App as SlimApp;
 
 use App\Action\Admin;
-use App\Action\{HomeAction, PingAction, PostAction, TagAction, TagListAction};
+use App\Action\{HomeAction, PingAction, PostAction, ProjectListAction, TagAction, TagListAction};
 use Slim\Routing\RouteCollectorProxy;
 
 return static function (SlimApp $app)
@@ -20,9 +20,12 @@ return static function (SlimApp $app)
 
     $app->get('/tag/{tag-slug}', TagAction::class)->setName('tag');
     $app->get('/tag', TagListAction::class)->setName('tag_list');
-    $app->get('/', HomeAction::class)->setName('home');
+
+    $app->get('/projects', ProjectListAction::class)->setName('projects');
 
     $app->get('/ping', PingAction::class);
+
+    $app->get('/', HomeAction::class)->setName('home');
 
     $app->get('/{post-slug}', PostAction::class)->setName('post');
 };
