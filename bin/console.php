@@ -22,7 +22,13 @@ $container = (require BOOTSTRAP_DIR . '/app.php')->getContainer();
 $application = new Application();
 
 $application->getDefinition()->addOption(
-    new InputOption('--env', '-e', InputOption::VALUE_REQUIRED, 'The Environment name.', 'development')
+    new InputOption(
+        '--env',
+        '-e',
+        InputOption::VALUE_REQUIRED,
+        'The Environment name.',
+        'development'
+    )
 );
 
 foreach ($container->get('settings')['commands'] as $class) {
