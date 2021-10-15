@@ -1,0 +1,23 @@
+{% extends '_layout.twig' %}
+
+{% block title %}
+    Projects / {{ parent() }}
+{% endblock %}
+
+{% block body %}
+    <main class="container">
+        <h1>Projects</h1>
+
+        {% for row in projects %}
+            <div class="bg-gray-100 p-4 rounded-lg shadow-md mb-6">
+                <a href="{{ row.url }}">
+                    <p class="title mb-1 text-lg transition-color duration-300 hover:text-green-700">
+                        {{ row.title }}
+                    </p>
+                </a>
+
+                <p class="text-gray-700 text-sm">{{ row.description }}</p>
+            </div>
+        {% endfor %}
+    </main>
+{% endblock %}
