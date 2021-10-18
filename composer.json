@@ -49,8 +49,8 @@
         "serve": "php -S localhost:8080 -t public cli-server.php",
         "sitemap:generate": "php bin/console.php sitemap-generator",
         "test": "phpunit",
-        "phpstan": "phpstan analyse framework src tests bootstrap --level=max -c phpstan.neon --no-progress --ansi",
-        "phpstan-progress": "phpstan analyse framework src tests bootstrap --level=max -c phpstan.neon --ansi",
+        "phpstan": "phpstan analyse -c phpstan.neon --no-progress --ansi",
+        "phpstan-progress": "phpstan analyse -c phpstan.neon --ansi",
         "psalm": "php vendor/bin/psalm.phar",
         "psalm-debug": "php vendor/bin/psalm.phar --show-info=true --no-cache"
     }
