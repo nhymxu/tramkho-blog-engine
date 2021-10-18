@@ -11,6 +11,8 @@ use Slim\Factory\AppFactory;
 use Slim\Interfaces\RouteParserInterface;
 use Slim\Middleware\ErrorMiddleware;
 use Slim\Views\Twig;
+use Symfony\Component\Console\Application;
+use Symfony\Component\Console\Input\InputOption;
 use Tuupola\Middleware\HttpBasicAuthentication;
 use Twig\Extra\Markdown\{MarkdownExtension, MarkdownRuntime};
 use Twig\Extra\String\StringExtension;
@@ -149,5 +151,25 @@ return [
                 return $response->withBody($body);
             }
         ]);
+    },
+
+    Application::class => static function (ContainerInterface $container) {
+        $application = new Application();
+
+        $application->getDefinition()->addOption(
+            new InputOption(
+                '--env',
+                '-e',
+                InputOption::VALUE_REQUIRED,
+                'The Environment name.',
+                'dev'
+            )
+        );
+
+        foreach ($container->get('settings')['commands'] as $class) {
+            $application->add($container->get($class));
+        }
+
+        return $application;
     },
 ];
