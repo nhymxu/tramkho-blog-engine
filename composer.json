@@ -13,7 +13,7 @@
         "ext-json": "*",
         "ext-pdo": "*",
         "icamys/php-sitemap-generator": "^4.3",
-        "league/commonmark": "^1.5",
+        "league/commonmark": "^2.1",
         "monolog/monolog": "^2.1",
         "nhymxu/php-floc-disable": "^1.0",
         "php-di/php-di": "^6.2",

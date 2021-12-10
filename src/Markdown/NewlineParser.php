@@ -14,16 +14,17 @@
 
 namespace App\Markdown;
 
-use League\CommonMark\Inline\Element\Newline;
-use League\CommonMark\Inline\Element\Text;
-use League\CommonMark\Inline\Parser\InlineParserInterface;
-use League\CommonMark\InlineParserContext;
+use League\CommonMark\Node\Inline\Newline;
+use League\CommonMark\Node\Inline\Text;
+use League\CommonMark\Parser\Inline\InlineParserMatch;
+use League\CommonMark\Parser\InlineParserContext;
+use League\CommonMark\Parser\Inline\InlineParserInterface;
 
 final class NewlineParser implements InlineParserInterface
 {
-    public function getCharacters(): array
+    public function getMatchDefinition(): InlineParserMatch
     {
-        return ["\n"];
+        return InlineParserMatch::regex('\\n');
     }
 
     public function parse(InlineParserContext $inlineContext): bool
@@ -31,13 +32,13 @@ final class NewlineParser implements InlineParserInterface
         $inlineContext->getCursor()->advanceBy(1);
 
         // Check previous inline for trailing spaces
-        $spaces = 0;
+        $spaces     = 0;
         $lastInline = $inlineContext->getContainer()->lastChild();
         if ($lastInline instanceof Text) {
-            $trimmed = \rtrim($lastInline->getContent(), ' ');
-            $spaces = \strlen($lastInline->getContent()) - \strlen($trimmed);
+            $trimmed = \rtrim($lastInline->getLiteral(), ' ');
+            $spaces  = \strlen($lastInline->getLiteral()) - \strlen($trimmed);
             if ($spaces) {
-                $lastInline->setContent($trimmed);
+                $lastInline->setLiteral($trimmed);
             }
         }
 

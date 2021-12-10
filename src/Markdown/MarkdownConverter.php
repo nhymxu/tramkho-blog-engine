@@ -1,14 +1,16 @@
 <?php
 namespace App\Markdown;
 
-use League\CommonMark\Environment;
-use League\CommonMark\GithubFlavoredMarkdownConverter;
+use League\CommonMark\Environment\Environment;
+use League\CommonMark\Extension\CommonMark\CommonMarkCoreExtension;
+use League\CommonMark\Extension\GithubFlavoredMarkdownExtension;
+use League\CommonMark\MarkdownConverter as LeagueMarkdownConverter;
 use Twig\Extra\Markdown\MarkdownInterface;
 
 class MarkdownConverter implements MarkdownInterface
 {
     /**
-     * @var GithubFlavoredMarkdownConverter
+     * @var LeagueMarkdownConverter
      */
     private $converter;
 
@@ -16,10 +18,13 @@ class MarkdownConverter implements MarkdownInterface
     {
         $config = [];
 
-        $environment = Environment::createGFMEnvironment();
+        $environment = new Environment($config);
+        $environment->addExtension(new CommonMarkCoreExtension());
+        $environment->addExtension(new GithubFlavoredMarkdownExtension());
+
         $environment->addInlineParser(new NewlineParser(), 200);
 
-        $this->converter = new GithubFlavoredMarkdownConverter($config, $environment);
+        $this->converter = new LeagueMarkdownConverter($environment);
     }
 
     public function convert(string $body): string
