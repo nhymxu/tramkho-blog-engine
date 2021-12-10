@@ -22,7 +22,7 @@
         "slim/psr7": "^1.2",
         "slim/slim": "^4.5",
         "slim/twig-view": "^3.0",
-        "symfony/console": "^5.1",
+        "symfony/console": "^6.0",
         "tuupola/slim-basic-auth": "^3.3",
         "twig/markdown-extra": "^3.0",
         "twig/string-extra": "^3.0",
