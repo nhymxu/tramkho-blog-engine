@@ -9,7 +9,7 @@ use Tuupola\Middleware\HttpBasicAuthentication;
 
 return static function (App $app) {
     $app->add(ResponseTimeMiddleware::class);
-    $app->add(FlocDisableMiddleware::class);
+    // $app->add(FlocDisableMiddleware::class);
 
     // Parse json, form data and xml
     $app->addBodyParsingMiddleware();
