@@ -139,16 +139,16 @@
         },
         {
             "name": "icamys/php-sitemap-generator",
-            "version": "4.3.3",
+            "version": "4.3.11",
             "source": {
                 "type": "git",
                 "url": "https://github.com/icamys/php-sitemap-generator.git",
-                "reference": "5d54b5679b811cf3345c5bbb0cc45d84a797dfe6"
+                "reference": "8d7837a5305f05074b7621ed3675622c6ad1c865"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/icamys/php-sitemap-generator/zipball/5d54b5679b811cf3345c5bbb0cc45d84a797dfe6",
-                "reference": "5d54b5679b811cf3345c5bbb0cc45d84a797dfe6",
+                "url": "https://api.github.com/repos/icamys/php-sitemap-generator/zipball/8d7837a5305f05074b7621ed3675622c6ad1c865",
+                "reference": "8d7837a5305f05074b7621ed3675622c6ad1c865",
                 "shasum": ""
             },
             "require": {
@@ -178,9 +178,9 @@
             ],
             "authors": [
                 {
-                    "name": "Prisacari Dmitrii",
+                    "name": "Dmitrii Prisacari",
                     "email": "prisacari.dmitrii@gmail.com",
-                    "homepage": "http://github.com/icamys/"
+                    "homepage": "https://github.com/icamys/"
                 }
             ],
             "description": "Simple PHP sitemap generator.",
@@ -195,9 +195,9 @@
             ],
             "support": {
                 "issues": "https://github.com/icamys/php-sitemap-generator/issues",
-                "source": "https://github.com/icamys/php-sitemap-generator/tree/4.3.3"
+                "source": "https://github.com/icamys/php-sitemap-generator/tree/4.3.11"
             },
-            "time": "2021-08-01T15:07:57+00:00"
+            "time": "2022-03-27T13:05:22+00:00"
         },
         {
             "name": "league/commonmark",
