@@ -139,16 +139,16 @@
         },
         {
             "name": "icamys/php-sitemap-generator",
-            "version": "4.4",
+            "version": "4.4.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/icamys/php-sitemap-generator.git",
-                "reference": "766a51e57bed249d4e7f997b4b249f63715cd6cf"
+                "reference": "a43e954b0c5a4fa47f4aac7a7c0ca46c2f1c2c24"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/icamys/php-sitemap-generator/zipball/766a51e57bed249d4e7f997b4b249f63715cd6cf",
-                "reference": "766a51e57bed249d4e7f997b4b249f63715cd6cf",
+                "url": "https://api.github.com/repos/icamys/php-sitemap-generator/zipball/a43e954b0c5a4fa47f4aac7a7c0ca46c2f1c2c24",
+                "reference": "a43e954b0c5a4fa47f4aac7a7c0ca46c2f1c2c24",
                 "shasum": ""
             },
             "require": {
@@ -195,9 +195,9 @@
             ],
             "support": {
                 "issues": "https://github.com/icamys/php-sitemap-generator/issues",
-                "source": "https://github.com/icamys/php-sitemap-generator/tree/4.4"
+                "source": "https://github.com/icamys/php-sitemap-generator/tree/4.4.1"
             },
-            "time": "2022-04-01T19:46:00+00:00"
+            "time": "2022-04-06T22:39:30+00:00"
         },
         {
             "name": "league/commonmark",
@@ -3886,5 +3886,5 @@
         "ext-pdo": "*"
     },
     "platform-dev": [],
-    "plugin-api-version": "2.3.0"
+    "plugin-api-version": "2.2.0"
 }
