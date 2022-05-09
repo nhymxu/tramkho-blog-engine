@@ -1,6 +1,7 @@
 <?php
 namespace App\Markdown;
 
+use Embed\Embed;
 use League\CommonMark\Environment\Environment;
 use League\CommonMark\Extension\CommonMark\CommonMarkCoreExtension;
 use League\CommonMark\Extension\Embed\EmbedExtension;
@@ -18,9 +19,17 @@ class MarkdownConverter implements MarkdownInterface
 
     public function __construct()
     {
+        $embedLibrary = new Embed();
+        $embedLibrary->setSettings([
+            'oembed:query_parameters' => [
+                'maxwidth' => 800,
+                'maxheight' => 600,
+            ],
+        ]);
+
         $config = [
             'embed' => [
-                'adapter' => new OscaroteroEmbedAdapter(),
+                'adapter' => new OscaroteroEmbedAdapter($embedLibrary),
                 'allowed_domains' => ['youtube.com'],
                 'fallback' => 'link',
             ],
