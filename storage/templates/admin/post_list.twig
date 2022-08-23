@@ -1,4 +1,4 @@
-{% extends '@admin/_layout.twig' %}
+{% extends '@admin/_layout_tailwind.twig' %}
 
 {% block body %}
 <div class="flex h-screen bg-gray-50 dark:bg-gray-900">
@@ -23,7 +23,7 @@
               </thead>
               <tbody class="bg-white divide-y dark:divide-gray-700 dark:bg-gray-800">
               {% for post in posts %}
-                {% include '@admin/_partial/post_row.twig' %}
+                {% include '@admin/_partial_tailwind/post_row.twig' %}
               {% endfor %}
               </tbody>
             </table>
@@ -37,7 +37,7 @@
 
             <span class="col-span-2"></span>
             <!-- Pagination -->
-            {% include '@admin/_partial/pagination.twig' %}
+            {% include '@admin/_partial_tailwind/pagination.twig' %}
           </div>
         </div>
       </div>
