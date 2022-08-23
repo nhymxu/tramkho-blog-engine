@@ -1,0 +1,793 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+    <title>Dashboard - Tabler - Premium and Open Source dashboard template with responsive and high quality UI.</title>
+    <!-- CSS files -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/core@1.0.0-beta11/dist/css/tabler.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/core@1.0.0-beta11/dist/css/tabler-flags.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/core@1.0.0-beta11/dist/css/tabler-payments.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/core@1.0.0-beta11/dist/css/tabler-vendors.min.css">
+    <style>
+        /*!
+        * Tabler v1.0.0-beta11 (https://tabler.io)
+        * @version 1.0.0-beta11
+        * @link https://tabler.io
+        * Copyright 2018-2022 The Tabler Authors
+        * Copyright 2018-2022 codecalm.net Paweł Kuna
+        * Licensed under MIT (https://github.com/tabler/tabler/blob/master/LICENSE)
+        */
+        pre.highlight,
+        .highlight pre {
+            max-height: 30rem;
+            margin: 1.5rem 0;
+            overflow: auto;
+            border-radius: 4px;
+        }
+        pre.highlight::-webkit-scrollbar,
+        .highlight pre::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+            -webkit-transition: background 0.3s;
+            transition: background 0.3s;
+        }
+        @media (prefers-reduced-motion: reduce) {
+            pre.highlight::-webkit-scrollbar,
+            .highlight pre::-webkit-scrollbar {
+                -webkit-transition: none;
+                transition: none;
+            }
+        }
+        pre.highlight::-webkit-scrollbar-thumb,
+        .highlight pre::-webkit-scrollbar-thumb {
+            border-radius: 5px;
+            background: rgba(var(--tblr-body-color-rgb), 0.16);
+        }
+        pre.highlight::-webkit-scrollbar-track,
+        .highlight pre::-webkit-scrollbar-track {
+            background: rgba(var(--tblr-body-color-rgb), 0.06);
+        }
+        pre.highlight:hover::-webkit-scrollbar-thumb,
+        .highlight pre:hover::-webkit-scrollbar-thumb {
+            background: rgba(var(--tblr-body-color-rgb), 0.32);
+        }
+        pre.highlight::-webkit-scrollbar-corner,
+        .highlight pre::-webkit-scrollbar-corner {
+            background: transparent;
+        }
+
+        .highlight {
+            margin: 0;
+        }
+        .highlight code > * {
+            margin: 0 !important;
+            padding: 0 !important;
+        }
+        .highlight .dl {
+            color: #4070a0;
+        }
+        .highlight .c {
+            color: #727272;
+        }
+        .highlight .c1 {
+            color: #727272;
+        }
+        .highlight .ch {
+            font-style: italic;
+            color: #60a0b0;
+        }
+        .highlight .cm {
+            color: #727272;
+        }
+        .highlight .cp {
+            color: #008085;
+        }
+        .highlight .cpf {
+            color: #007020;
+        }
+        .highlight .cs {
+            color: #727272;
+        }
+        .highlight .gd {
+            background-color: #fcc;
+            border: 1px solid #c00;
+        }
+        .highlight .ge {
+            font-style: italic;
+        }
+        .highlight .gh {
+            color: #030;
+        }
+        .highlight .gi {
+            background-color: #cfc;
+            border: 1px solid #0c0;
+        }
+        .highlight .gl {
+            text-decoration: underline;
+        }
+        .highlight .go {
+            color: #aaa;
+        }
+        .highlight .gp {
+            color: #009;
+        }
+        .highlight .gr {
+            color: #f00;
+        }
+        .highlight .gs {
+            font-weight: 700;
+        }
+        .highlight .gt {
+            color: #9c6;
+        }
+        .highlight .gu {
+            color: #030;
+        }
+        .highlight .il {
+            color: #c24f19;
+        }
+        .highlight .k {
+            color: #069;
+        }
+        .highlight .kc {
+            color: #069;
+        }
+        .highlight .kd {
+            color: #069;
+        }
+        .highlight .kn {
+            color: #069;
+        }
+        .highlight .kp {
+            color: #069;
+        }
+        .highlight .kr {
+            color: #069;
+        }
+        .highlight .kt {
+            color: #078;
+        }
+        .highlight .m {
+            color: #c24f19;
+        }
+        .highlight .mf {
+            color: #c24f19;
+        }
+        .highlight .mb {
+            color: #40a070;
+        }
+        .highlight .mh {
+            color: #c24f19;
+        }
+        .highlight .mi {
+            color: #c24f19;
+        }
+        .highlight .mo {
+            color: #c24f19;
+        }
+        .highlight .na {
+            color: #006ee0;
+        }
+        .highlight .nb {
+            color: #366;
+        }
+        .highlight .nc {
+            color: #168174;
+        }
+        .highlight .nd {
+            color: #6b62de;
+        }
+        .highlight .ne {
+            color: #c00;
+        }
+        .highlight .nf {
+            color: #b715f4;
+        }
+        .highlight .ni {
+            color: #727272;
+        }
+        .highlight .nl {
+            color: #6b62de;
+        }
+        .highlight .nn {
+            color: #007ca5;
+        }
+        .highlight .no {
+            color: #360;
+        }
+        .highlight .nt {
+            color: #2f6f9f;
+        }
+        .highlight .nv {
+            color: #033;
+        }
+        .highlight .o {
+            color: #555;
+        }
+        .highlight .ow {
+            color: #000;
+        }
+        .highlight .s {
+            color: #d73038;
+        }
+        .highlight .s1 {
+            color: #c30;
+        }
+        .highlight .s2 {
+            color: #c30;
+        }
+        .highlight .sa {
+            color: #4070a0;
+        }
+        .highlight .sb {
+            color: #c30;
+        }
+        .highlight .sc {
+            color: #c30;
+        }
+        .highlight .sd {
+            font-style: italic;
+            color: #c30;
+        }
+        .highlight .se {
+            color: #c30;
+        }
+        .highlight .sh {
+            color: #c30;
+        }
+        .highlight .si {
+            color: #a00;
+        }
+        .highlight .sr {
+            color: #337e7e;
+        }
+        .highlight .ss {
+            color: #fc3;
+        }
+        .highlight .sx {
+            color: #c30;
+        }
+        .highlight .w {
+            color: #bbb;
+        }
+        .highlight .language-bash::before, .highlight .language-sh::before {
+            color: #009;
+            content: "$ ";
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+        .highlight .language-bash .m, .highlight .language-sh .m {
+            color: inherit;
+        }
+        .highlight .language-powershell::before {
+            color: #009;
+            content: "PM> ";
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+
+        .example {
+            padding: 2rem;
+            margin: 1rem 0 2rem;
+            border: 1px solid #e6e7e9;
+            border-radius: 3px 3px 0 0;
+            position: relative;
+            min-height: 12rem;
+            display: flex;
+            align-items: center;
+            overflow-x: auto;
+        }
+
+        .example-centered {
+            justify-content: center;
+        }
+        .example-centered .example-content {
+            flex: 0 auto;
+        }
+
+        .example-content {
+            font-size: 0.875rem;
+            line-height: 1.4285714286;
+            color: #1e293b;
+            flex: 1;
+            max-width: 100%;
+        }
+        .example-content .page-header {
+            margin-bottom: 0;
+        }
+
+        .example-bg {
+            background: #f5f7fb;
+        }
+
+        .example-code {
+            margin: 2rem 0;
+            border: 1px solid #e6e7e9;
+            border-top: none;
+        }
+        .example-code pre {
+            margin: 0;
+            border: 0;
+            border-radius: 0 0 3px 3px;
+        }
+        .example + .example-code {
+            margin-top: -2rem;
+        }
+
+        .example-column {
+            margin: 0 auto;
+        }
+        .example-column > .card:last-of-type {
+            margin-bottom: 0;
+        }
+
+        .example-column-1 {
+            max-width: 26rem;
+        }
+
+        .example-column-2 {
+            max-width: 52rem;
+        }
+
+        .example-modal-backdrop {
+            background: #1e293b;
+            opacity: 0.24;
+            position: absolute;
+            width: 100%;
+            left: 0;
+            top: 0;
+            height: 100%;
+            border-radius: 2px 2px 0 0;
+        }
+
+        @media not print {
+            .theme-dark .example {
+                background-color: #1b2434;
+                border-color: #2c3c56;
+            }
+            .theme-dark .example-content {
+                color: #fafbfc;
+            }
+            .theme-dark .example-code {
+                border-color: #2c3c56;
+                border-top: none;
+            }
+        }
+        @media not print {
+            @media (prefers-color-scheme: dark) {
+                .theme-dark-auto .example {
+                    background-color: #1b2434;
+                    border-color: #2c3c56;
+                }
+                .theme-dark-auto .example-content {
+                    color: #fafbfc;
+                }
+                .theme-dark-auto .example-code {
+                    border-color: #2c3c56;
+                    border-top: none;
+                }
+            }
+        }
+        .card-sponsor {
+            background: #dbe7f6 no-repeat center/100% 100%;
+            border-color: #548ed2;
+            min-height: 316px;
+        }
+
+        body.no-transitions * {
+            transition: none !important;
+        }
+
+        .dropdown-menu-demo {
+            display: inline-block;
+            width: 100%;
+            position: relative;
+            top: 0;
+            margin-bottom: 1rem;
+        }
+
+        .demo-icon-preview {
+            position: -webkit-sticky;
+            position: sticky;
+            top: 0;
+        }
+        .demo-icon-preview svg,
+        .demo-icon-preview i {
+            width: 15rem;
+            height: 15rem;
+            font-size: 15rem;
+            stroke-width: 1.5;
+            margin: 0 auto;
+            display: block;
+        }
+        @media (max-width: 575.98px) {
+            .demo-icon-preview svg,
+            .demo-icon-preview i {
+                width: 10rem;
+                height: 10rem;
+                font-size: 10rem;
+            }
+        }
+
+        .demo-icon-preview-icon pre {
+            margin: 0;
+            -webkit-user-select: all;
+            -moz-user-select: all;
+            user-select: all;
+        }
+
+        .demo-dividers > p {
+            opacity: 0.2;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+
+        .demo-icons-list {
+            display: flex;
+            flex-wrap: wrap;
+            padding: 0;
+            margin: 0 -2px -1px 0;
+            list-style: none;
+        }
+        .demo-icons-list > * {
+            flex: 1 0 4rem;
+        }
+
+        .demo-icons-list-wrap {
+            overflow: hidden;
+        }
+
+        .demo-icons-list-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            aspect-ratio: 1;
+            text-align: center;
+            padding: 0.5rem;
+            border-right: 1px solid var(--tblr-border-color);
+            border-bottom: 1px solid var(--tblr-border-color);
+            color: inherit;
+            cursor: pointer;
+        }
+        .demo-icons-list-item .icon {
+            width: 1.5rem;
+            height: 1.5rem;
+            font-size: 1.5rem;
+        }
+        .demo-icons-list-item:hover {
+            text-decoration: none;
+        }
+
+        .settings-btn {
+            position: fixed;
+            right: -1px;
+            top: 10rem;
+            border-top-right-radius: 0;
+            border-bottom-right-radius: 0;
+            box-shadow: rgba(30, 41, 59, 0.04) 0 2px 4px 0;
+        }
+
+        .settings-scheme {
+            display: inline-block;
+            border-radius: 50%;
+            height: 3rem;
+            width: 3rem;
+            position: relative;
+            border: 1px solid var(--tblr-border-color);
+            box-shadow: rgba(30, 41, 59, 0.04) 0 2px 4px 0;
+        }
+        .settings-scheme-light {
+            background: linear-gradient(135deg, #ffffff 50%, #fafbfc 50%);
+        }
+        .settings-scheme-mixed {
+            background-image: linear-gradient(135deg, #1e293b 50%, #fff 50%);
+        }
+        .settings-scheme-transparent {
+            background: #fafbfc;
+        }
+        .settings-scheme-dark {
+            background: #1e293b;
+        }
+        .settings-scheme-colored {
+            background-image: linear-gradient(135deg, var(--tblr-primary) 50%, #fafbfc 50%);
+        }
+    </style>
+</head>
+<body>
+
+<div class="page">
+    {% include '@admin/_partial/header_nav.twig' %}
+
+    <div class="page-wrapper">
+        <div class="container-xl">
+            <!-- Page title -->
+            <div class="page-header d-print-none">
+                {% block page_header %}{% endblock %}
+            </div>
+        </div>
+
+        <div class="page-body">
+            {% block page_body %}{% endblock %}
+        </div>
+
+        {% include '@admin/_partial/footer.twig' %}
+    </div>
+</div>
+
+<div class="modal modal-blur fade" id="modal-report" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">New report</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="mb-3">
+                    <label class="form-label">Name</label>
+                    <input type="text" class="form-control" name="example-text-input" placeholder="Your report name">
+                </div>
+                <label class="form-label">Report type</label>
+                <div class="form-selectgroup-boxes row mb-3">
+                    <div class="col-lg-6">
+                        <label class="form-selectgroup-item">
+                            <input type="radio" name="report-type" value="1" class="form-selectgroup-input" checked>
+                            <span class="form-selectgroup-label d-flex align-items-center p-3">
+                    <span class="me-3">
+                      <span class="form-selectgroup-check"></span>
+                    </span>
+                    <span class="form-selectgroup-label-content">
+                      <span class="form-selectgroup-title strong mb-1">Simple</span>
+                      <span class="d-block text-muted">Provide only basic data needed for the report</span>
+                    </span>
+                  </span>
+                        </label>
+                    </div>
+                    <div class="col-lg-6">
+                        <label class="form-selectgroup-item">
+                            <input type="radio" name="report-type" value="1" class="form-selectgroup-input">
+                            <span class="form-selectgroup-label d-flex align-items-center p-3">
+                    <span class="me-3">
+                      <span class="form-selectgroup-check"></span>
+                    </span>
+                    <span class="form-selectgroup-label-content">
+                      <span class="form-selectgroup-title strong mb-1">Advanced</span>
+                      <span class="d-block text-muted">Insert charts and additional advanced analyses to be inserted in the report</span>
+                    </span>
+                  </span>
+                        </label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-8">
+                        <div class="mb-3">
+                            <label class="form-label">Report url</label>
+                            <div class="input-group input-group-flat">
+                    <span class="input-group-text">
+                      https://tabler.io/reports/
+                    </span>
+                                <input type="text" class="form-control ps-0"  value="report-01" autocomplete="off">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="mb-3">
+                            <label class="form-label">Visibility</label>
+                            <select class="form-select">
+                                <option value="1" selected>Private</option>
+                                <option value="2">Public</option>
+                                <option value="3">Hidden</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="mb-3">
+                            <label class="form-label">Client name</label>
+                            <input type="text" class="form-control">
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="mb-3">
+                            <label class="form-label">Reporting period</label>
+                            <input type="date" class="form-control">
+                        </div>
+                    </div>
+                    <div class="col-lg-12">
+                        <div>
+                            <label class="form-label">Additional information</label>
+                            <textarea class="form-control" rows="3"></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <a href="#" class="btn btn-link link-secondary" data-bs-dismiss="modal">
+                    Cancel
+                </a>
+                <a href="#" class="btn btn-primary ms-auto" data-bs-dismiss="modal">
+                    <!-- Download SVG icon from http://tabler-icons.io/i/plus -->
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><line x1="12" y1="5" x2="12" y2="19" /><line x1="5" y1="12" x2="19" y2="12" /></svg>
+                    Create new report
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Libs JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/apexcharts/3.35.5/apexcharts.min.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jsvectormap/1.5.1/js/jsvectormap.min.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jsvectormap/1.5.1/maps/world.min.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jsvectormap/1.5.1/maps/world-merc.min.js" defer></script>
+
+<!-- Tabler Core -->
+<script src="https://cdn.jsdelivr.net/npm/@tabler/core@1.0.0-beta11/dist/js/tabler.min.js"></script>
+<script type="text/javascript">
+    /*!
+    * Tabler v1.0.0-beta11 (https://tabler.io)
+    * @version 1.0.0-beta11
+    * @link https://tabler.io
+    * Copyright 2018-2022 The Tabler Authors
+    * Copyright 2018-2022 codecalm.net Paweł Kuna
+    * Licensed under MIT (https://github.com/tabler/tabler/blob/master/LICENSE)
+    */
+    (function (factory) {
+        typeof define === 'function' && define.amd ? define(factory) :
+            factory();
+    })((function () { 'use strict';
+
+        function _slicedToArray(arr, i) {
+            return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest();
+        }
+
+        function _arrayWithHoles(arr) {
+            if (Array.isArray(arr)) return arr;
+        }
+
+        function _iterableToArrayLimit(arr, i) {
+            var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"];
+
+            if (_i == null) return;
+            var _arr = [];
+            var _n = true;
+            var _d = false;
+
+            var _s, _e;
+
+            try {
+                for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) {
+                    _arr.push(_s.value);
+
+                    if (i && _arr.length === i) break;
+                }
+            } catch (err) {
+                _d = true;
+                _e = err;
+            } finally {
+                try {
+                    if (!_n && _i["return"] != null) _i["return"]();
+                } finally {
+                    if (_d) throw _e;
+                }
+            }
+
+            return _arr;
+        }
+
+        function _unsupportedIterableToArray(o, minLen) {
+            if (!o) return;
+            if (typeof o === "string") return _arrayLikeToArray(o, minLen);
+            var n = Object.prototype.toString.call(o).slice(8, -1);
+            if (n === "Object" && o.constructor) n = o.constructor.name;
+            if (n === "Map" || n === "Set") return Array.from(o);
+            if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen);
+        }
+
+        function _arrayLikeToArray(arr, len) {
+            if (len == null || len > arr.length) len = arr.length;
+
+            for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i];
+
+            return arr2;
+        }
+
+        function _nonIterableRest() {
+            throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
+        }
+
+        var items = {
+            'theme': {
+                localStorage: 'tablerTheme',
+                default: 'light'
+            },
+            'menu-position': {
+                localStorage: 'tablerMenuPosition',
+                default: 'top'
+            },
+            'menu-behavior': {
+                localStorage: 'tablerMenuBehavior',
+                default: 'sticky'
+            },
+            'container-layout': {
+                localStorage: 'tablerContainerLayout',
+                default: 'boxed'
+            }
+        };
+        var config = {};
+        for (var _i = 0, _Object$entries = Object.entries(items); _i < _Object$entries.length; _i++) {
+            var _Object$entries$_i = _slicedToArray(_Object$entries[_i], 2),
+                key = _Object$entries$_i[0],
+                params = _Object$entries$_i[1];
+            var lsParams = localStorage.getItem(params.localStorage);
+            config[key] = lsParams ? lsParams : params.default;
+        }
+        var parseUrl = function parseUrl() {
+            var search = window.location.search.substring(1);
+            var params = search.split('&');
+            for (var i = 0; i < params.length; i++) {
+                var arr = params[i].split('=');
+                var _key = arr[0];
+                var value = arr[1];
+                if (!!items[_key]) {
+                    localStorage.setItem(items[_key].localStorage, value);
+                    config[_key] = value;
+                }
+            }
+        };
+        var toggleFormControls = function toggleFormControls(form) {
+            for (var _i2 = 0, _Object$entries2 = Object.entries(items); _i2 < _Object$entries2.length; _i2++) {
+                var _Object$entries2$_i = _slicedToArray(_Object$entries2[_i2], 2),
+                    _key2 = _Object$entries2$_i[0];
+                _Object$entries2$_i[1];
+                var elem = form.querySelector("[name=\"settings-".concat(_key2, "\"][value=\"").concat(config[_key2], "\"]"));
+                if (elem) {
+                    elem.checked = true;
+                }
+            }
+        };
+        var updateBodyClasses = function updateBodyClasses() {
+            document.body.classList.remove('theme-dark', 'theme-light');
+            document.body.classList.add("theme-".concat(config.theme));
+        };
+        var submitForm = function submitForm(form) {
+            for (var _i3 = 0, _Object$entries3 = Object.entries(items); _i3 < _Object$entries3.length; _i3++) {
+                var _Object$entries3$_i = _slicedToArray(_Object$entries3[_i3], 2),
+                    _key3 = _Object$entries3$_i[0],
+                    _params2 = _Object$entries3$_i[1];
+                var value = form.querySelector("[name=\"settings-".concat(_key3, "\"]:checked")).value;
+                localStorage.setItem(_params2.localStorage, value);
+                config[_key3] = value;
+            }
+            updateBodyClasses();
+            window.dispatchEvent(new Event('resize'));
+            new bootstrap.Offcanvas(form).hide();
+        };
+        parseUrl();
+        updateBodyClasses();
+        var form = document.querySelector('#offcanvasSettings');
+        if (form) {
+            form.addEventListener('submit', function (e) {
+                e.preventDefault();
+                submitForm(form);
+            });
+            toggleFormControls(form);
+        }
+
+    }));
+</script>
+
+{% block footer_script %}{% endblock %}
+</body>
+</html>
