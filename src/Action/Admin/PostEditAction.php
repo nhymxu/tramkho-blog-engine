@@ -35,7 +35,6 @@ final class PostEditAction extends BaseAction
             'success'       => true,
             'notice'        => $notice,
             'post_action'   => 'update',
-            'slug'          => $post['slug'],
             'post'          => $post,
             'tags'          => $tags,
             'tag_ids'       => json_encode($tag_ids),

@@ -104,7 +104,7 @@ class AdminRepository extends BlogRepository
         $stmt->execute($payload);
     }
 
-    public function updatePostPublishTime(int $post_id, string $publish_time)
+    public function updatePostPublishTime(int $post_id, string $publish_time): void
     {
         $sql = "UPDATE post
                 SET published_at = :publish_time
@@ -114,6 +114,19 @@ class AdminRepository extends BlogRepository
         $stmt->execute([
             'post_id' => $post_id,
             'publish_time' => $publish_time
+        ]);
+    }
+
+    public function updatePostDateTime(int $post_id, string $field, string $value): void
+    {
+        $sql = "UPDATE post
+                SET ${field} = :value
+                WHERE id = :post_id";
+
+        $stmt = $this->connection->prepare($sql);
+        $stmt->execute([
+            'post_id'   => $post_id,
+            'value'     => $value,
         ]);
     }
 

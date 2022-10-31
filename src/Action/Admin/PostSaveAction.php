@@ -52,6 +52,22 @@ final class PostSaveAction extends BaseAction
             $this->repository->updatePostPublishTime($post_id, $now);
         }
 
+        if (isset($data['post-edit_datetime']) && $data['post-edit_datetime'] == '1') {
+            $keys = [
+                'post_created_at',
+                'post_updated_at',
+                'post_published_at',
+            ];
+            foreach($keys as $key)
+            {
+                if (isset($data[$key]) && $data[$key] != '')
+                {
+                    $field = str_replace('post_', '', $key);
+                    $this->repository->updatePostDateTime($post_id, $field, $data[$key]);
+                }
+            }
+        }
+
         $tags = $this->repository->getPostTag($post_id);
         $tag_ids = [];
         foreach ($tags as $tag) {
