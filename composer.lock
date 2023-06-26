@@ -304,16 +304,16 @@
         },
         {
             "name": "icamys/php-sitemap-generator",
-            "version": "4.4.1",
+            "version": "4.6.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/icamys/php-sitemap-generator.git",
-                "reference": "a43e954b0c5a4fa47f4aac7a7c0ca46c2f1c2c24"
+                "reference": "a0f436b5984fa5148f781c9d9d8cd5d0b9a88486"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/icamys/php-sitemap-generator/zipball/a43e954b0c5a4fa47f4aac7a7c0ca46c2f1c2c24",
-                "reference": "a43e954b0c5a4fa47f4aac7a7c0ca46c2f1c2c24",
+                "url": "https://api.github.com/repos/icamys/php-sitemap-generator/zipball/a0f436b5984fa5148f781c9d9d8cd5d0b9a88486",
+                "reference": "a0f436b5984fa5148f781c9d9d8cd5d0b9a88486",
                 "shasum": ""
             },
             "require": {
@@ -329,7 +329,7 @@
             },
             "require-dev": {
                 "php-mock/php-mock-phpunit": "^2.6.0",
-                "phpunit/phpunit": "^9.3.8"
+                "phpunit/phpunit": "^9.5.19"
             },
             "type": "library",
             "autoload": {
@@ -360,9 +360,9 @@
             ],
             "support": {
                 "issues": "https://github.com/icamys/php-sitemap-generator/issues",
-                "source": "https://github.com/icamys/php-sitemap-generator/tree/4.4.1"
+                "source": "https://github.com/icamys/php-sitemap-generator/tree/4.6.0"
             },
-            "time": "2022-04-06T22:39:30+00:00"
+            "time": "2023-06-26T14:08:43+00:00"
         },
         {
             "name": "laravel/serializable-closure",
