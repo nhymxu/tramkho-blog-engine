@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "2f32930c63dd85af2107e2ac8eabdb93",
+    "content-hash": "b0190325b128509e59af367ee80d6650",
     "packages": [
         {
             "name": "composer/ca-bundle",
@@ -304,16 +304,16 @@
         },
         {
             "name": "icamys/php-sitemap-generator",
-            "version": "4.7.0",
+            "version": "5.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/icamys/php-sitemap-generator.git",
-                "reference": "236d8e7de28e9bb3ff028180ab9e3d0fe7c047b8"
+                "reference": "18bab7bb96fe278486da9c6efea6b865bd6de58b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/icamys/php-sitemap-generator/zipball/236d8e7de28e9bb3ff028180ab9e3d0fe7c047b8",
-                "reference": "236d8e7de28e9bb3ff028180ab9e3d0fe7c047b8",
+                "url": "https://api.github.com/repos/icamys/php-sitemap-generator/zipball/18bab7bb96fe278486da9c6efea6b865bd6de58b",
+                "reference": "18bab7bb96fe278486da9c6efea6b865bd6de58b",
                 "shasum": ""
             },
             "require": {
@@ -325,11 +325,12 @@
                 "ext-xml": "*",
                 "ext-xmlwriter": "*",
                 "ext-zlib": "*",
-                "php": "^7.3 || ^8.0"
+                "php": "^8.0"
             },
             "require-dev": {
-                "php-mock/php-mock-phpunit": "^2.6.0",
-                "phpunit/phpunit": "^9.5.19"
+                "php-mock/php-mock-phpunit": "^2.7",
+                "phpunit/phpunit": "^9.6",
+                "vimeo/psalm": "^5.15"
             },
             "type": "library",
             "autoload": {
@@ -360,9 +361,19 @@
             ],
             "support": {
                 "issues": "https://github.com/icamys/php-sitemap-generator/issues",
-                "source": "https://github.com/icamys/php-sitemap-generator/tree/4.7.0"
+                "source": "https://github.com/icamys/php-sitemap-generator/tree/5.0.0"
             },
-            "time": "2023-08-06T22:25:38+00:00"
+            "funding": [
+                {
+                    "url": "https://github.com/icamys",
+                    "type": "github"
+                },
+                {
+                    "url": "https://www.patreon.com/icamys",
+                    "type": "patreon"
+                }
+            ],
+            "time": "2023-10-23T20:29:53+00:00"
         },
         {
             "name": "laravel/serializable-closure",
