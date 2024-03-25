@@ -14,12 +14,8 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        # php: [7.4, 8.0, 8.1]
-        php: [7.4]
+        php: [8.1, 8.2, 8.3]
         experimental: [false]
-        include:
-          - php: 8.1
-            analysis: true
 
     steps:
       - name: Checkout
@@ -29,10 +25,8 @@ jobs:
         uses: shivammathur/setup-php@v2
         with:
           php-version: ${{ matrix.php }}
+          tools: composer:v2
           coverage: xdebug
-
-      - name: Install dependencies with Composer
-        uses: ramsey/composer-install@v2
 
       - name: Coding standards
         if: matrix.analysis
