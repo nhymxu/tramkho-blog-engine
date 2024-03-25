@@ -15,7 +15,7 @@
         "embed/embed": "^4.4",
         "icamys/php-sitemap-generator": "^5.0",
         "league/commonmark": "^2.1",
-        "monolog/monolog": "^2.1",
+        "monolog/monolog": "^3.5",
         "php-di/php-di": "^6.2",
         "rakit/validation": "^1.4",
         "selective/basepath": "^2.0",
