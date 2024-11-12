@@ -1,13 +1,15 @@
 parameters:
-    level: max
+    level: 6 # max
     paths:
         - src
         - tests
         - bin
     reportUnmatchedIgnoredErrors: false
-    checkMissingIterableValueType: false
-    checkGenericClassInNonGenericObjectType: false
     ignoreErrors:
+        -
+            identifier: missingType.iterableValue
+        -
+            identifier: missingType.generics
         - '/expects stdClass, object given/'
         - '/Cannot access offset [0-1]+ on (.*)callable/'
         - '/PHPDoc tag @throws with type Interop\\Container\\Exception\\ContainerException is not subtype of Throwable/'
