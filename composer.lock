@@ -1728,20 +1728,20 @@
         },
         {
             "name": "selective/basepath",
-            "version": "2.3.0",
+            "version": "2.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/selective-php/basepath.git",
-                "reference": "67188429f918aee1f9e06feb441df60956e30f3c"
+                "reference": "6c06d274e97a583d16353636ccbf566fd3737ce1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/selective-php/basepath/zipball/67188429f918aee1f9e06feb441df60956e30f3c",
-                "reference": "67188429f918aee1f9e06feb441df60956e30f3c",
+                "url": "https://api.github.com/repos/selective-php/basepath/zipball/6c06d274e97a583d16353636ccbf566fd3737ce1",
+                "reference": "6c06d274e97a583d16353636ccbf566fd3737ce1",
                 "shasum": ""
             },
             "require": {
-                "php": "8.1.* || 8.2.* || 8.3.* || 8.4.*",
+                "php": "8.1.* || 8.2.* || 8.3.* || 8.4.* || 8.5.*",
                 "psr/http-server-middleware": "^1"
             },
             "require-dev": {
@@ -1771,9 +1771,9 @@
             ],
             "support": {
                 "issues": "https://github.com/selective-php/basepath/issues",
-                "source": "https://github.com/selective-php/basepath/tree/2.3.0"
+                "source": "https://github.com/selective-php/basepath/tree/2.4.0"
             },
-            "time": "2025-05-27T18:16:02+00:00"
+            "time": "2026-02-05T20:45:33+00:00"
         },
         {
             "name": "slim/psr7",
